@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="28" viewBox="0 0 50 28">
+  <g id="rectangle" fill="#fff" stroke="#c4c6cf" stroke-miterlimit="10" stroke-width="1" stroke-dasharray="0">
+    <rect width="50" height="28" rx="3" stroke="none"/>
+    <rect x="0.5" y="0.5" width="49" height="27" rx="2.5" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="对" transform="translate(-6 -26.668)">
+    <rect id="矩形_4" data-name="矩形 4" width="16" height="16" transform="translate(6 26.668)" fill="none"/>
+    <g id="对-2" data-name="对" transform="translate(6 28)">
+      <rect id="矩形" width="13.31" height="13.31" transform="translate(0.013 0.013)" opacity="0"/>
+      <path id="路径" d="M6.66,13.31a1.331,1.331,0,0,1-.945-.386L.391,7.6a1.336,1.336,0,0,1,1.89-1.89L6.514,9.956,13.581.533a1.331,1.331,0,1,1,2.13,1.6L7.725,12.777a1.331,1.331,0,0,1-.972.532Z" transform="translate(0.011 0.013)" fill="#5692dd"/>
+    </g>
+  </g>
+</svg>

@@ -1,18 +1,18 @@
-import Vue from 'vue'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-import { API_ROOT } from '../config/env'
-import { getLocalStorage } from './localStorage'
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import { REST_API } from '../../../config/env';
+import { getLocalStorage } from './localStorage';
 
 let isLoggedToken = getLocalStorage('token');
 let isLoggedTokenBoolean = !!isLoggedToken;
 
 Vue.use(VueAxios, axios.create({
-    baseURL: API_ROOT,
+    baseURL: REST_API,
     headers: { Accept: 'application/json' },
 }));
 
-Vue.axios.defaults.baseURL = API_ROOT;
+Vue.axios.defaults.baseURL = REST_API;
 
 const success = (resolve, response) => resolve(response.data);
 const error = (reject, err) => reject(err);
@@ -44,9 +44,8 @@ const request = (method, url, data, config = {}) => new Promise((resolve, reject
         .catch(r => error(reject, r));
 });
 
-
-export const _get = (url,data,config) => request('get',API_ROOT + url,data,config);
-export const _post = (url,data,config) => request('post',API_ROOT + url,data,config);
-export const _put = (url,data,config) => request('put',API_ROOT + url,data,config);
-export const _patch = (url,data,config) => request('patch',API_ROOT + url,data,config);
-export const _delete = (url,data,config) => request('delete',API_ROOT + url,data,config);
+export const _get = (url,data,config) => request('get', REST_API + url,data,config);
+export const _post = (url,data,config) => request('post', REST_API + url,data,config);
+export const _put = (url,data,config) => request('put', REST_API + url,data,config);
+export const _patch = (url,data,config) => request('patch', REST_API + url,data,config);
+export const _delete = (url,data,config) => request('delete', REST_API + url,data,config);

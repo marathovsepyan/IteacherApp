@@ -1,4 +1,4 @@
-const webpack = require('webpack')
+const webpack = require('webpack');
 
 module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
@@ -28,4 +28,4 @@ module.exports = {
   transpileDependencies: [
     'resize-detector' // vue-echarts
   ]
-}
+};

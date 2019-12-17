@@ -4,12 +4,14 @@
             <nav class="sidebar" data-sidebar-anyclick-close="">
                 <ul class="sidebar-nav">
                     <li v-for="(menuItem, index) in menuList" :key="index" @click="activeMenuID = index">
-                        <router-link :to="menuItem.link" class="d-flex align-items-center fn-14 menu_item" :class="activeMenuID == index ? 'active' : ''">
+                        <router-link :to="menuItem.link" class="d-flex align-items-center fn-14 menu_item"
+                                     :class="activeMenuID === index ? 'active' : ''">
                             <img :src="menuItem.icon + '.png'" alt="" class="icon-width-16 mr-2">
                             <div>{{menuItem.name}}</div>
-                            <div v-if="menuItem.name == '学生' && isWaitingStd" class="ml-1" style="width: 12px; height: 12px; border-radius: 50%; background-color: red"></div>
+                            <div v-if="menuItem.name === '学生' && isWaitingStd" class="ml-1"
+                                 style="width: 12px; height: 12px; border-radius: 50%; background-color: red"></div>
                         </router-link>
-                        
+
                     </li>
                 </ul>
             </nav>
@@ -29,7 +31,7 @@
                 tRole: null,
                 timerID: null,
                 isWaitingStd: false
-            }
+            };
         },
         mounted() {
             // this.menuList = [
@@ -42,21 +44,39 @@
             // ];
         },
         watch:{
-            $route: function(val){ this.setCurrentMenu(); }
+            $route: function(val){
+                console.log(val);
+                this.setCurrentMenu();
+            }
         },
         methods: {
-            setCurrentMenu(){
-                let cur_path = this.$route.path;
-                for(var index in this.menuList){
-                    let link = this.menuList[index].link;
-                    if(cur_path.indexOf(link) == 0){
-                        this.activeMenuID = index;
-                        break;
+            setCurrentMenu() {
+                let currentPath = this.$route.path;
+                for(let index in this.menuList){
+                    if(this.menuList.hasOwnProperty(index)) {
+                        let link = this.menuList[index].link;
+                        if(currentPath.indexOf(link) === 0){
+                            this.activeMenuID = index;
+                            break;
+                        }
                     }
                 }
             },
         }
-    }
+    };
+    /**
+     * 1) use let or const instead of var
+     *
+     * 2) before referencing to link property check if index exists -> this.menuList[index].link (line 55)
+     *
+     * 3) instead of this _ use upperCase style -> currentPath not cur_path (also please write proper variable name that describe the concrete action or value)
+     *
+     * 4) Please read about Javascript coercion! and instead of this == use deep version ===
+     *
+     * 5) Please read about ESlint: https://eslint.org/docs/rules/#best-practices
+     *
+     * 6) Please Remove line styling (line 12)
+     * **/
 </script>
 <style>
     .wrapper .aside-container,

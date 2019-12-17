@@ -5,18 +5,18 @@
 </template>
 
 <script>
-import Layout from './components/layouts/Layout.vue'
+import Layout from './components/layouts/Layout.vue';
 
 export default {
   name: 'app',
   components: {
     Layout,
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import '~@/styles/index';
+@import './styles/index';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

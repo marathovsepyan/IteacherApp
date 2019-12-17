@@ -1,4 +1,4 @@
-import { getLocalStorage } from '../../../utils/localStorage';
+import { getLocalStorage } from '../../../shared/utils/localStorage';
 
 const initialState = {
     token: getLocalStorage('token') || '',
@@ -19,4 +19,4 @@ export default{
     actions,
     mutations,
     getters
-}
+};

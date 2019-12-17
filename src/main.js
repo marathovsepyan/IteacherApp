@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { store } from './store/index';
+import { store } from './shared/store';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
@@ -9,11 +9,11 @@ import Header from './components/layouts/Header.vue';
 
 
 Vue.use(BootstrapVue);
-Vue.filter('to-uppercase',function(value){
+Vue.filter('to-uppercase', function(value) {
   return value.toUpperCase();
 });
 
-Vue.component('Header',Header);
+Vue.component('Header', Header);
 Vue.config.productionTip = false;
 
 new Vue({

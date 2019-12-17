@@ -52,10 +52,10 @@
         methods: {
             setCurrentMenu() {
                 let currentPath = this.$route.path;
-                for(let index in this.menuList){
-                    if(this.menuList.hasOwnProperty(index)) {
+                for (let index in this.menuList){
+                    if (this.menuList.hasOwnProperty(index)) {
                         let link = this.menuList[index].link;
-                        if(currentPath.indexOf(link) === 0){
+                        if (currentPath.indexOf(link) === 0){
                             this.activeMenuID = index;
                             break;
                         }

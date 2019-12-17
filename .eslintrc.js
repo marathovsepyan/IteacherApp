@@ -23,6 +23,8 @@ module.exports = {
       ignoreStrings: true,
       ignoreTemplateLiterals: true
     }],
+    'comma-spacing': 'error',
+    'keyword-spacing': 'error'
   },
   parserOptions: {
     parser: 'babel-eslint'

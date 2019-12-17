@@ -1,10 +1,10 @@
 import {warn} from './logger';
 let memoryStorage = {};
 
-export const setLocalStorage = (key,value) => {
+export const setLocalStorage = (key, value) => {
     try {
         memoryStorage[key] = value;
-        localStorage.setItem(key,value);
+        localStorage.setItem(key, value);
     } catch (e) {
         warn(`Error on setting localStorage by ${key} key!`);
     }

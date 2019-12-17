@@ -15,7 +15,7 @@ export const checkAuthentication = (router) => {
             }
         } else {
             if (isLoggedTokenBoolean) {
-                if(to.path === '/login' || to.path === '/register'){
+                if (to.path === '/login' || to.path === '/register'){
                     next({
                         path: '/about',
                     });

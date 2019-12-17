@@ -20,7 +20,7 @@ const error = (reject, err) => reject(err);
 const request = (method, url, data, config = {}) => new Promise((resolve, reject) => {
     if (!(['get', 'post', 'put', 'patch', 'delete'].includes(method))) throw new Error(`Http method ${method} does not supported`);
 
-    if(isLoggedTokenBoolean){
+    if (isLoggedTokenBoolean){
         config['token'] = isLoggedToken;
     }
 
@@ -44,8 +44,12 @@ const request = (method, url, data, config = {}) => new Promise((resolve, reject
         .catch(r => error(reject, r));
 });
 
-export const _get = (url,data,config) => request('get', REST_API + url,data,config);
-export const _post = (url,data,config) => request('post', REST_API + url,data,config);
-export const _put = (url,data,config) => request('put', REST_API + url,data,config);
-export const _patch = (url,data,config) => request('patch', REST_API + url,data,config);
-export const _delete = (url,data,config) => request('delete', REST_API + url,data,config);
+export const _get = (url, data, config) => request('get', REST_API + url, data, config);
+export const _post = (url, data, config) => request('post', REST_API + url, data, config);
+export const _put = (url, data, config) => request('put', REST_API + url, data, config);
+export const _patch = (url, data, config) => request('patch', REST_API + url, data, config);
+export const _delete = (url, data, config) => request('delete', REST_API + url, data, config);
+
+export const setAuthHeader = (token) => {
+    Vue.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};

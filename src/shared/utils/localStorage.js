@@ -1,12 +1,12 @@
-import {warn} from './logger'
+import {warn} from './logger';
 let memoryStorage = {};
 
 export const setLocalStorage = (key,value) => {
     try {
         memoryStorage[key] = value;
-        localStorage.setItem(key,value)
+        localStorage.setItem(key,value);
     } catch (e) {
-        warn(`Error on setting localStorage by ${key} key!`)
+        warn(`Error on setting localStorage by ${key} key!`);
     }
 };
 
@@ -14,8 +14,8 @@ export const getLocalStorage = (key) => {
     try {
         return localStorage.getItem(key);
     } catch (e) {
-        warn(`Error on getting localStorage by name ${key} (${e})`)
-        return memoryStorage[key] || null
+        warn(`Error on getting localStorage by name ${key} (${e})`);
+        return memoryStorage[key] || null;
     }
 
 };
@@ -34,6 +34,6 @@ export const clearLocalStorage = () => {
         memoryStorage = {};
         localStorage.clear();
     } catch (e) {
-        warn(`Error on clearing localStorage!`)
+        warn(`Error on clearing localStorage!`);
     }
 };

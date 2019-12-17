@@ -1,4 +1,4 @@
-import { getLocalStorage } from './localStorage'
+import { getLocalStorage } from './localStorage';
 
 export const checkAuthentication = (router) => {
     let isLoggedToken = getLocalStorage('token');

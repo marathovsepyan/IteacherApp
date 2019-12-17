@@ -1,29 +1,27 @@
 <template>
         <div class="wrapper">
 
-            <Header :hasSideMenu="isTeacher ? true : false"/>
+            <Header :hasSideMenu="isTeacher"/>
 
-            <div class="aside-box">                    
+            <div class="aside-box">
                 <Sidebar v-if="isTeacher"/>
             </div>
 
-            <!-- sideMenu-->
             <div class="dash-content">
-                <!-- Main section-->
                 <section class="section-container" >
                     <router-view/>
                 </section>
             </div>
-                    
+
+            <Footer/>
+
         </div>
-    <!-- </div> -->
 </template>
 
 <script>
-    import Vue from 'vue';
-    import Header from './Header'
-    import Sidebar from './Sidebar'
-    import Footer from './Footer'
+    import Header from './Header';
+    import Sidebar from './Sidebar';
+    import Footer from './Footer';
 
     export default {
         name: 'Layout',
@@ -32,17 +30,22 @@
             Sidebar,
             Footer
         },
-        data(){
+        data() {
             return {
                 isTeacher: true
-            }
-        }, 
+            };
+        },
         created(){
             // let role = this.$store.getters.getRole;
             // if(role == 'admin' || role == 'teacher') this.isTeacher = true;
             // else this.isTeacher = false;
         }
-    }
+    };
+    /**
+     *  1) <Header :hasSideMenu="isTeacher ? true : false"/> what is the meaning of this operation ? Just use  <Header :hasSideMenu="isTeacher"/>
+     *
+     *  2) Remove or use components that are you using. In this case you export "Footer" component but not use.
+     * **/
 </script>
 <style>
     .wrapper {
@@ -80,7 +83,7 @@
         overflow: hidden;
         height: 100%;
     }
-    
+
     .wrapper .section-container .unwrap{
         margin: -32px -40px;
     }

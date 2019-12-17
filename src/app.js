@@ -1,4 +1,4 @@
-import {_get, _post, _put, _patch,_delete} from './utils/http';
+import {_get, _post} from './shared/utils/http';
 
 
 /*-------------- Authentication ---------------*/

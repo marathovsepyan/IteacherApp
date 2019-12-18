@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 const router = new VueRouter({
     linkActiveClass: 'is-active',
     routes: routes,
-    mode: 'history'
+    mode: 'history',
 });
 
 checkAuthentication(router);

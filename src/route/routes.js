@@ -1,14 +1,19 @@
-// import Login from '../components/pages/Login';
+// const Login = () => import('../components/pages/Login');
 // import Register from '../components/pages/Register';
 // import PageNotFound from '../components/layouts/PageNotFound';
+import { routes as Teacher } from '@/modules/Teacher';
+import { routes as Student } from '@/modules/Student';
 
 export const routes = [
     {
         path: '/', redirect: '/login',
     },
-    // {
-    //     path: '/login', component: Login ,
-    // },
+    {
+        ...Teacher,
+    },
+    {
+        ...Student,
+    },
     // {
     //     path: '/register', component: Register ,
     // },

@@ -11,14 +11,22 @@ export const checkAuthentication = (router) => {
                     path: '/login',
                 });
             } else {
-                next();
+                next({ path: 'not-found' });
             }
-        } else {
+        } e+lse {
             if (isLoggedTokenBoolean) {
+                let role = getLocalStorage('role');
                 if (to.path === '/login' || to.path === '/register'){
-                    next({
-                        path: '/about',
-                    });
+                    if (role === 'teacher'){
+                        next({
+                            path: '/dashboard',
+                        });
+                    }
+                    if (role === 'student') {
+                        next({
+                            path: '/home',
+                        });
+                    }
                 }
             }
 

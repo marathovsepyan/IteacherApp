@@ -10,12 +10,14 @@ import {
 const defaultState = {
     isAuthenticated: !!getLocalStorage('token'),
     token: getLocalStorage('token') || '',
+    role: getLocalStorage('role') || '',
     user: JSON.parse(getLocalStorage('user')) || {},
 };
 
 const getters = {
     isAuthenticated: state => state.isAuthenticated,
     token: state => state.token,
+    role: state => state.role,
     user: state => state.user
 };
 
@@ -24,20 +26,26 @@ const mutations = {
         state.user = '';
         state.isAuthenticated = false;
         state.token = {};
+        state.role = '';
+
         clearLocalStorage();
     },
-    [type.SIGN_IN]: (state, {user, token}) => {
+    [type.SIGN_IN]: (state, {user, token, role}) => {
         state.user = user;
         state.isAuthenticated = true;
         state.token = token;
+        state.role = role;
         setLocalStorage('token', token);
+        setLocalStorage('role', role);
         setLocalStorage('user', JSON.stringify(user));
     },
-    [type.SIGN_UP]: (state, {user, token}) => {
+    [type.SIGN_UP]: (state, {user, token, role}) => {
         state.user = user;
         state.isAuthenticated = true;
         state.token = token;
+        state.role = role;
         setLocalStorage('token', token);
+        setLocalStorage('role', role);
         setLocalStorage('user', JSON.stringify(user));
     },
 };

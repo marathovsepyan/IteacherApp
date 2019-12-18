@@ -15,6 +15,7 @@ module.exports = {
     'no-case-declarations': 'error',
     'no-multi-spaces': 'error',
     'no-useless-escape': 'error',
+    'no-trailing-spaces': 'error',
     'linebreak-style': 0,
     'max-len': [1, 160, 2, {
       ignoreUrls: true,

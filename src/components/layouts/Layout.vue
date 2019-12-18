@@ -41,15 +41,9 @@
             // else this.isTeacher = false;
         }
     };
-    /**
-     *  1) <Header :hasSideMenu="isTeacher ? true : false"/> what is the meaning of this operation ? Just use  <Header :hasSideMenu="isTeacher"/>
-     *
-     *  2) Remove or use components that are you using. In this case you export "Footer" component but not use.
-     * **/
 </script>
 <style>
     .wrapper {
-        /* background-color: #F3F3F3;    */
         background-color: #FFFFFF;
         display: flex;
         flex-direction: column;

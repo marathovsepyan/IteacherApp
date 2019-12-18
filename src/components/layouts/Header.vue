@@ -49,11 +49,5 @@
         methods: {
         },
     };
-    /**
-     * 1) No multi spaces!!!    {name: '首页',         link: '/home' }, it's not correct.
-     *
-     * 2) Use deep checking === if(userRole == 'guest')
-     * **/
-</script>
 <style>
 </style>

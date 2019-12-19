@@ -6,7 +6,8 @@ import { routes as Student } from '@/modules/Student';
 
 export const routes = [
     {
-        path: '/', redirect: '/login',
+        path: '/',
+        redirect: '/login',
     },
     {
         ...Teacher,

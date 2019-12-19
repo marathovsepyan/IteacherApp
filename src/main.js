@@ -3,6 +3,7 @@ import { store } from './shared/store';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import BootstrapVue from 'bootstrap-vue';
+import './styles/index.scss';
 import router from './route/router';
 import App from './App.vue';
 import Header from './components/layouts/Header.vue';

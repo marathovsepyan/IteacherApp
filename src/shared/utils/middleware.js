@@ -13,7 +13,7 @@ export const checkAuthentication = (router) => {
             } else {
                 next({ path: 'not-found' });
             }
-        } e+lse {
+        } else {
             if (isLoggedTokenBoolean) {
                 let role = getLocalStorage('role');
                 if (to.path === '/login' || to.path === '/register'){

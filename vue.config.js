@@ -9,11 +9,25 @@ module.exports = {
         // modules: [
         //     path.resolve0(__dirname, 'public/svg'),
         // ],
+        // resolve: {
+        //     alias: {
+        //       '@': path.join(__dirname, 'src/'),
+        //       '~': path.join(__dirname, 'public/'),
+        //     }
+        // },
         rules: [
-            {
-                test: /\.svg$/,
-                loader: 'vue-svg-loader', // `vue-svg` for webpack 1.x
-            },
+          {
+              test: /\.svg$/,
+              loader: 'vue-svg-loader', // `vue-svg` for webpack 1.x
+          },
+          // {
+          //   test: /\.scss$/,
+          //   use: [
+          //     'vue-style-loader',
+          //     'css-loader',
+          //     'sass-loader'
+          //   ]
+          // },
         ]
       },
       plugins: [

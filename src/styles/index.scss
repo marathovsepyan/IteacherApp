@@ -1,0 +1,52 @@
+@import './custom.scss';
+@import './variable.scss';
+
+.l-wrap {
+    &__header {
+        h2 {
+            margin: 0 0 0 22px;
+        }
+    }
+    &__body {
+        padding: 50px 70px 40px;
+        .tabs {
+            .nav-tabs {
+                border: none;
+                padding-bottom: 20px;
+                .nav-item {
+                    .nav-link {
+                        color: $gray-500;
+                        border: none;
+                        font-weight: 500;
+                        line-height: 1.1;
+                        padding: 0 40px;
+                        &:focus {
+                            outline: none;
+                        }
+                        &.active {
+                            color: $primary;
+                        }
+                    }
+                    &:first-child {
+                        border-right: 1px solid $gray-500;
+                        .nav-link {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+
+            &:last-child {
+                margin-top: 40px;
+            }
+        }
+    }
+    &__footer {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+}

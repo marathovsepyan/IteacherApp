@@ -1,0 +1,105 @@
+@import './variable.scss';
+
+//Typography
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 600;
+}
+
+h1 {
+
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.text-primary {
+    color: $primary!important;
+}
+
+.text-light {
+    color: $lighter!important;
+}
+
+.text-sm {
+    font-size: 14px!important;
+}
+
+.text-xs {
+    font-size: 12px!important;
+}
+
+b.divider {
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    margin: 0 0.5rem;
+}
+
+a {
+    color: $primary;
+}
+
+//Backgrounds
+.bg-primary {
+    background-color: $primary!important;
+}
+
+//Buttons
+.btn {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 7px 12px;
+}
+
+.btn-link {
+    color: $primary
+}
+
+.btn-success {
+    background-color: $success;
+}
+
+.btn-light {
+    background-color: $lighter;
+    color: $white;
+    &:hover,
+    &:focus {
+        color: $white;
+        background-color: $gray-400;
+    }
+}
+
+
+//Forms
+input::placeholder {
+    color: $gray-500!important;
+    opacity: 1;
+}
+
+.form-group {
+
+}
+
+.form-control {
+    font-weight: 400;
+    height: 40px;
+    border-color: rgba(196,198,207,1);
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.form-outline {
+    font-size: 14px;
+    padding-left: 0;
+    border-width: 0 0 1px 0;
+    border-color: rgba(229,229,229,1);
+    &:focus {
+        border-color: $primary;
+    }
+}

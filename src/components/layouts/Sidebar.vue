@@ -64,19 +64,6 @@
             },
         }
     };
-    /**
-     * 1) use let or const instead of var
-     *
-     * 2) before referencing to link property check if index exists -> this.menuList[index].link (line 55)
-     *
-     * 3) instead of this _ use upperCase style -> currentPath not cur_path (also please write proper variable name that describe the concrete action or value)
-     *
-     * 4) Please read about Javascript coercion! and instead of this == use deep version ===
-     *
-     * 5) Please read about ESlint: https://eslint.org/docs/rules/#best-practices
-     *
-     * 6) Please Remove line styling (line 12)
-     * **/
 </script>
 <style>
     .wrapper .aside-container,

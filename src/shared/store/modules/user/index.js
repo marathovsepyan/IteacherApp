@@ -6,6 +6,7 @@ import {
     register,
     logout
 } from '../../../utils/endpoints';
+const md5 = require('md5');
 
 const defaultState = {
     isAuthenticated: !!getLocalStorage('token'),
@@ -57,12 +58,13 @@ const actions = {
         commit(type.LOGOUT);
     },
 
-    [type.SIGN_IN]: async ({commit}, {email, password}) => {
-        let data = await login({email, password});
+    [type.SIGN_IN]: async ({commit}, {phone, password}) => {
+        let data = await login({phone, password: md5(password)});
 
         if (data) {
-            setAuthHeader(data.token);
-            commit(type.SIGN_IN, {user: data.user[0], token: data.token});
+            const { token, role } = data.userInfo;
+            setAuthHeader(token);
+            commit(type.SIGN_IN, {user: data.userInfo, token: token, role: role});
         }
     },
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <multiselect v-model="value" :options="options" placeholder="选择学校"></multiselect>
+    <multiselect v-model="value" :options="options || testOptions" :placeholder="placeholder"></multiselect>
   </div>
 </template>
 
@@ -8,14 +8,23 @@
 import Multiselect from 'vue-multiselect';
 
 export default {
+    name: 'CustomSelect',
+    props: {
+      placeholder: { type: String, },
+      options: { type: Array, },
+      value: { type: String, },
+      isMulriselect: {
+        type: Boolean,
+        default: false
+      },
+    },
     components: {
-        Multiselect,
+      Multiselect,
     },
     data () {
-        return {
-            value: null,
-            options: ['list', 'of', 'options']
-        }
+      return {
+        testOptions: ['list', 'of', 'options'],
+      };
     },
 };
 </script>

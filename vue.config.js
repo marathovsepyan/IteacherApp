@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+// const path = require('path');
 
 module.exports = {
   lintOnSave: process.env.NODE_ENV !== 'production',
@@ -11,8 +12,7 @@ module.exports = {
         // ],
         // resolve: {
         //     alias: {
-        //       '@': path.join(__dirname, 'src/'),
-        //       '~': path.join(__dirname, 'public/'),
+        //       '@': path.join(__dirname, 'public/'),
         //     }
         // },
         rules: [

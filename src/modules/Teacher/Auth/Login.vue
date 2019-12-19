@@ -21,7 +21,12 @@
                                     :valid-feedback="validFeedback"
                                     :state="state"
                                     >
-                                        <b-form-input id="input-1" v-model="name" :state="state" placeholder="请输入手机号" class="form-outline rounded-0"></b-form-input>
+                                        <b-form-input
+                                            id="input-1"
+                                            v-model="phone"
+                                            :state="state"
+                                            placeholder="请输入手机号"
+                                            class="form-outline rounded-0"></b-form-input>
                                     </b-form-group>
 
                                     <b-form-group
@@ -30,11 +35,17 @@
                                     :valid-feedback="validFeedback"
                                     :state="state"
                                     >
-                                        <b-form-input id="input-2" v-model="name" :state="state" type="password" placeholder="请输入密码" class="form-outline rounded-0"></b-form-input>
+                                        <b-form-input
+                                            id="input-2"
+                                            v-model="password"
+                                            :state="state"
+                                            type="password"
+                                            placeholder="请输入密码"
+                                            class="form-outline rounded-0"></b-form-input>
                                     </b-form-group>
 
                                     <b-form-group>
-                                        <b-button type="submit" variant="light btn-block rounded-pill">登录</b-button>
+                                        <b-button type="submit" variant="light btn-block rounded-pill" @click="loginAction">登录</b-button>
                                         <b-form-text class="d-flex justify-content-between">
                                             <a href="" class="btn btn-link text-xs">注册账号</a>
                                             <a href="" class="btn btn-link text-xs">忘记密码</a>
@@ -48,7 +59,12 @@
                                     :invalid-feedback="invalidFeedback"
                                     :valid-feedback="validFeedback"
                                     :state="state">
-                                        <b-form-input id="input-1" v-model="name" :state="state" placeholder="请输入手机号" class="form-outline rounded-0"></b-form-input>
+                                        <b-form-input
+                                        id="input-3"
+                                        v-model="name"
+                                        :state="state"
+                                        placeholder="请输入手机号"
+                                        class="form-outline rounded-0"></b-form-input>
                                     </b-form-group>
 
                                     <b-form-group
@@ -57,7 +73,12 @@
                                     :valid-feedback="validFeedback"
                                     :state="state">
                                         <b-input-group>
-                                            <b-form-input id="input-2" v-model="name" :state="state" type="password" placeholder="请输入密码" class="form-outline rounded-0"></b-form-input>
+                                            <b-form-input id="input-4"
+                                                v-model="name"
+                                                :state="state"
+                                                type="password"
+                                                placeholder="请输入密码"
+                                                class="form-outline rounded-0"></b-form-input>
                                             <b-input-group-append>
                                                 <b-button variant="link text-xs">获取验证码</b-button>
                                             </b-input-group-append>
@@ -65,7 +86,7 @@
                                     </b-form-group>
 
                                     <b-form-group>
-                                        <b-button type="submit" variant="light btn-block rounded-pill">登录</b-button>
+                                        <b-button type="button" variant="light btn-block rounded-pill">登录</b-button>
                                         <b-form-text class="d-flex justify-content-between">
                                             <a href="" class="btn btn-link text-xs">注册账号</a>
                                             <a href="" class="btn btn-link text-xs">忘记密码</a>
@@ -92,8 +113,30 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: 'Login',
+    data: () => ({
+        phone: null,
+        password: null,
+        state: null,
+        name: null,
+        invalidFeedback: null,
+        validFeedback: null,
+    }),
+    methods: {
+        ...mapActions({
+            signin: 'SIGN_IN',
+        }),
+        loginAction() {
+            console.log("phone", this.phone);
+            this.signin({
+                phone: this.phone,
+                password: this.password,
+            });
+        },
+    }
 };
 </script>
 

@@ -5,7 +5,7 @@
                 <b-col md="6" lg="6" class="d-flex align-items-center">
                     <div class="img-miror">
                         <img src="../../../../public/img/banners/auth_teacher_bg.png" alt="" class="img-fluid">
-                    </div>  
+                    </div>
                 </b-col>
                 <b-col md="6" lg="5" offset-lg="1">
                     <div class="l-wrap">
@@ -29,7 +29,7 @@
                             :valid-feedback="validFeedback"
                             :state="state"
                             >
-                            <custom-select/>
+                            <custom-select placeholder="选择学校"/>
                             </b-form-group>
 
                             <b-form-group
@@ -58,7 +58,12 @@
                             :valid-feedback="validFeedback"
                             :state="state"
                             >
-                                <b-form-input id="" v-model="name" type="password" :state="state" placeholder="请输入密码，6-8位至少含数字/字母2种组合" class="form-outline rounded-0"></b-form-input>
+                                <b-form-input
+                                    id="" v-model="name"
+                                    type="password"
+                                    :state="state"
+                                    placeholder="请输入密码，6-8位至少含数字/字母2种组合"
+                                    class="form-outline rounded-0"></b-form-input>
                             </b-form-group>
 
                             <b-form-group>
@@ -82,7 +87,13 @@ export default {
     name: 'Register',
     components: {
         CustomSelect,
-    }
+    },
+    data: () => ({
+        name: null,
+        invalidFeedback: null,
+        validFeedback: null,
+        state: null,
+    })
 };
 </script>
 

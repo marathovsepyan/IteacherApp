@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination-container"> 
+  <div class="pagination-container">
     <div class="">
         <v-pagination :value="page"
                     @input="handlePageChange"
@@ -21,9 +21,9 @@ import CustomButton from '@/components/Common/CustomButton';
 
 export default {
   name: 'Pagination',
-  components: { 
+  components: {
     vPagination,
-    CustomButton 
+    CustomButton
   },
   props: {
     currentPage: Number,
@@ -38,7 +38,7 @@ export default {
         li: 'page-item',
         liActive: 'active',
         liDisable: 'disabled',
-        button: 'page-link'  
+        button: 'page-link'
       },
       paginationAnchorTexts: {
         first: false,
@@ -46,36 +46,35 @@ export default {
         next: 'Next &rsaquo; ',
         last: false
       }
-    }
+    };
   },
   computed: {
     total() {
-      return this.totalPages === 0 ? 1 : Math.ceil(this.totalPages / 10)
+      return this.totalPages === 0 ? 1 : Math.ceil(this.totalPages / 10);
     }
   },
   created() {
     this.page = +this.currentPage + 1;
   },
   methods: {
-    changePage(e) {
-      
+    changePage() {
     },
     handlePageChange(e) {
-      if(e.target && e.target.name === 'view') {
+      if (e.target && e.target.name === 'view') {
         // need to re-check second statment is it needed or not
-        if(this.goToPage && this.goToPage < this.total) {  
+        if (this.goToPage && this.goToPage < this.total) {
           this.page = +this.goToPage;
           this.goToPage = null;
-          this.$emit('changePage', this.page - 1); 
+          this.$emit('changePage', this.page - 1);
         }
-        return
+        return;
       }
 
       this.page = e;
-      this.$emit('changePage', this.page - 1);      
+      this.$emit('changePage', this.page - 1);
     }
   }
-}
+};
 </script>
 
 <style lang="scss">

@@ -7,7 +7,7 @@
                 </div>
                 <span>王明</span>
             </b-nav-item>
-            <b-nav-item @click="logout">
+            <b-nav-item @click="logOut">
                 <span>退出</span>
             </b-nav-item>
         </b-navbar-nav>
@@ -60,11 +60,11 @@ export default {
     },
     methods: {
         ...mapActions({
-            signout: 'LOGOUT'
+            signOut: 'LOGOUT'
         }),
-        logout() {
+        logOut() {
             const redirectionSubPath = this.role === 'teacher' ? '/teacher' : '';
-            this.signout();
+            this.signOut();
             this.$router.push({ path: `${redirectionSubPath}/login` });
         },
     },

@@ -1,36 +1,24 @@
 <template>
     <div class="card overflow-hidden border-0">
         <div class="card__header">
-            <custom-navigation />
-            <b-row class="justify-content-center">
-                <tab-component :active="selectedTabId"
-                    @click="selectTab"/>
+            <b-row class="justify-content-end">
+                <button>添加课程</button>
             </b-row>
         </div>
         <div class="card__body">
-            <b-table-simple caption-top responsive :no-border-collapse="noCollapse">
+            <b-table-simple caption-top responsive :no-border-collapse="true">
                 <b-thead head-variant="light">
                     <b-tr>
-                        <b-th olspan="1">课程</b-th>
-                        <b-th olspan="1">班级名称</b-th>
-                        <b-th olspan="1">操作</b-th>
+                        <b-th>班级名称</b-th>
+                        <b-th>课程</b-th>
+                        <b-th>操作</b-th>
                     </b-tr>
                 </b-thead>
                 <b-tbody>
-                    <!-- <b-tr v-for="(item, index) in values"
+                    <b-tr v-for="(item, index) in courses"
                         :key="index + 'tbody'">
-                        <b-th width="10%">allow</b-th>
-                        <b-th width="10%">/ə'laʊ/</b-th>
-                        <b-th width="10%"><a href="#">详情</a></b-th>
-                    </b-tr> -->
-                    <b-tr>
-                        <b-th width="10%">allow</b-th>
-                        <b-th width="10%">/ə'laʊ/</b-th>
-                        <b-th width="10%"><a href="#">详情</a></b-th>
-                    </b-tr>
-                    <b-tr>
-                        <b-th width="10%">allow</b-th>
-                        <b-th width="10%">/ə'laʊ/</b-th>
+                        <b-th width="10%">{{ item.name }}</b-th>
+                        <b-th width="10%">{{ item.createdAt }}</b-th>
                         <b-th width="10%"><a href="#">详情</a></b-th>
                     </b-tr>
                 </b-tbody>
@@ -40,19 +28,28 @@
 </template>
 
 <script>
-import CustomNavigation from '../../../components/common/CustomNavigation';
-import TabComponent from '../../../components/common/TabComponent';
-
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
+    name: 'CoursesComponent',
     components: {
-        CustomNavigation,
-        TabComponent,
     },
     data: () => ({
         selectedTabId: 0,
     }),
+    computed: {
+        ...mapGetters({
+            courses: 'getCourses',
+        })
+    },
+    async created() {
+        await this.viewCourses();
+        console.log("this.courses", this.courses);
+    },
     methods: {
+        ...mapActions({
+            viewCourses: 'GET_COURSES',
+        }),
         selectTab(index){
             this.selectedTabID = index;
             // this.currentPage = 0;
@@ -69,6 +66,37 @@ export default {
         padding: 20px;
     }
     &__body {
+        .table {
+            font-size: 12px;
+            font-weight: 400;
+            color: #333;
+
+            thead {
+                th {
+                    vertical-align: middle;
+                    text-align: center;
+                    border: none;
+                    background: rgba(235,236,240,1);
+                    &.custom-border {
+                        border-width: 0 1px;
+                        border-style: solid;
+                        border-color: #fff;
+                    }
+                    .th-rowspan {
+                        border-top: 1px solid #fff;
+                        span {
+                            display: block;
+                            padding: 2px 4px;
+                        }
+                    }
+                }
+            }
+            tbody {
+                th {
+                    text-align: center;
+                }
+            }
+        }
     }
 }
 .content-pagination {

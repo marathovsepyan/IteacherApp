@@ -1,6 +1,7 @@
 import userStore from './user';
-// Another Stores for example PostStore
+import courseStore from './teacher/course';
 
 export {
-    userStore
+    userStore,
+    courseStore,
 };

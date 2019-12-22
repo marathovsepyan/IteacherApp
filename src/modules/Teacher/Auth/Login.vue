@@ -127,10 +127,10 @@ export default {
     }),
     methods: {
         ...mapActions({
-            signin: 'SIGN_IN',
+            signIn: 'SIGN_IN',
         }),
         async login() {
-            await this.signin({
+            await this.signIn({
                 phone: this.phone,
                 password: this.password,
             });

@@ -51,5 +51,5 @@ export const _patch = (url, data, config) => request('patch', REST_API + url, da
 export const _delete = (url, data, config) => request('delete', REST_API + url, data, config);
 
 export const setAuthHeader = (token) => {
-    Vue.axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    Vue.axios.defaults.headers.authorization = `${token}`;
 };

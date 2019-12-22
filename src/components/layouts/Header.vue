@@ -7,7 +7,7 @@
                 </div>
                 <span>王明</span>
             </b-nav-item>
-            <b-nav-item>
+            <b-nav-item @click="logout">
                 <span>退出</span>
             </b-nav-item>
         </b-navbar-nav>
@@ -15,46 +15,67 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, } from 'vuex';
 
-    export default {
-        name: 'Header',
-        components: {
-        },
-        props: {
-            hasSideMenu: Boolean
-        },
-        data:() => ({
-            menuList: [],
-            userRole: 'student',
+export default {
+    name: 'Header',
+    components: {
+    },
+    props: {
+        hasSideMenu: Boolean
+    },
+    data:() => ({
+        menuList: [],
+        userRole: 'student',
+    }),
+    computed: {
+        ...mapGetters({
+            role: 'role',
+        })
+    },
+    created() {
+
+    },
+    mounted() {
+        const userRole = this.$store.getters.getRole;
+        this.userRole = userRole;
+
+        if (userRole === 'student'){
+            this.menuList = [
+                {name: '首页', link: '/home' },
+                {name: '课程', link: '/course' },
+                {name: '作业', link: '/homework' },
+                {name: '收藏本', link: '/collection' },
+                {name: '课外阅读', link: '/extracourse' }
+            ];
+
+            this.checkMessageStatus();
+            this.intervalID = setInterval(this.checkMessageStatus, 10000);
+        } else if (userRole === 'guest'){
+            this.menuList = [
+                {name: '首页', link: '/home' },
+                {name: '课外阅读', link: '/extracourse' }
+            ];
+        }
+    },
+    methods: {
+        ...mapActions({
+            signout: 'LOGOUT'
         }),
-        created() {
+        logout() {
+            // if (this.role === 'teacher') {
+            //     this.$router.push({ path: '/teacher/login'});
+            // }
 
-        },
-        mounted() {
-            const userRole = this.$store.getters.getRole;
-            this.userRole = userRole;
+            // if (this.role === 'student') {
+            //     this.$router.push({ path: '/login' });
+            // }
 
-            if (userRole === 'student'){
-                this.menuList = [
-                    {name: '首页', link: '/home' },
-                    {name: '课程', link: '/course' },
-                    {name: '作业', link: '/homework' },
-                    {name: '收藏本', link: '/collection' },
-                    {name: '课外阅读', link: '/extracourse' }
-                ];
-
-                this.checkMessageStatus();
-                this.intervalID = setInterval(this.checkMessageStatus, 10000);
-            } else if (userRole === 'guest'){
-                this.menuList = [
-                    {name: '首页', link: '/home' },
-                    {name: '课外阅读', link: '/extracourse' }
-                ];
-            }
+            this.signout();
+            this.$router.push({ path: '/login' });
         },
-        methods: {
-        },
-    };
+    },
+};
 </script>
 
 <style lang="scss">

@@ -45,7 +45,7 @@
                                     </b-form-group>
 
                                     <b-form-group>
-                                        <b-button type="submit" variant="light btn-block rounded-pill" @click="loginAction">登录</b-button>
+                                        <b-button type="submit" variant="light btn-block rounded-pill" @click="login">登录</b-button>
                                         <b-form-text class="d-flex justify-content-between">
                                             <a href="" class="btn btn-link text-xs">注册账号</a>
                                             <a href="" class="btn btn-link text-xs">忘记密码</a>
@@ -129,12 +129,12 @@ export default {
         ...mapActions({
             signin: 'SIGN_IN',
         }),
-        loginAction() {
-            console.log("phone", this.phone);
-            this.signin({
+        async login() {
+            await this.signin({
                 phone: this.phone,
                 password: this.password,
             });
+            this.$router.push({ name: 'teacher-homeworks'});
         },
     }
 };

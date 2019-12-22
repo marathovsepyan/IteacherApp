@@ -92,6 +92,7 @@ export default {
         TabComponent,
     },
     data: () => ({
+        noCollapse: true,
         selectedTabId: 0,
     }),
     methods: {

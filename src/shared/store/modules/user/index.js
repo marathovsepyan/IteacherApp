@@ -3,8 +3,7 @@ import * as type from './mutation-types';
 import { setAuthHeader } from '../../../utils/http';
 import {
     login,
-    register,
-    logout
+    register
 } from '../../../utils/endpoints';
 const md5 = require('md5');
 
@@ -32,6 +31,7 @@ const mutations = {
         clearLocalStorage();
     },
     [type.SIGN_IN]: (state, {user, token, role}) => {
+        console.log('token from mutation', token);
         state.user = user;
         state.isAuthenticated = true;
         state.token = token;
@@ -53,8 +53,8 @@ const mutations = {
 
 const actions = {
     [type.LOGOUT]: async ({commit}) => {
-        let token = getLocalStorage('token');
-        await logout({token: token});
+        // let token = getLocalStorage('token');
+        // await logout({token: token});
         commit(type.LOGOUT);
     },
 
@@ -63,6 +63,7 @@ const actions = {
 
         if (data) {
             const { token, role } = data.userInfo;
+            console.log("token", token);
             setAuthHeader(token);
             commit(type.SIGN_IN, {user: data.userInfo, token: token, role: role});
         }

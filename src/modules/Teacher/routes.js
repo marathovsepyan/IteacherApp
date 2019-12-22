@@ -10,35 +10,36 @@ const Courses = () => import('./Course/Courses');
 
 export default {
     path: '/teacher',
-    redirect: '/teacher/login',
+    // redirect: '/teacher/login',
     component: Index,
     children: [
       {
-        path: '/teacher/login',
+        path: 'login',
+        name: 'teacher-login',
         component: Login,
       },
       {
-        path: '/teacher/register',
+        path: 'register',
         name: 'teacher-register',
         component: Register,
       },
       {
-        path: '/teacher/smsverification',
+        path: 'smsverification',
         name: 'teacher-sms-verification',
         component: SmsVerification,
       },
       {
-        path: '/teacher',
+        path: '',
         component: Layout,
-        // meta: { auth: true },
+        meta: { auth: true },
         children: [
           {
-            path: '/teacher/courses',
+            path: 'courses',
             name: 'teacher-couses',
             component: Courses,
           },
           {
-            path: '/teacher/homeworks',
+            path: 'homeworks',
             name: 'teacher-homeworks',
             component: Homeworks,
             children: [

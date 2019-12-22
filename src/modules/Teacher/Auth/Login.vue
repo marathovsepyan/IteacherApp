@@ -3,7 +3,7 @@
         <b-container fluid>
             <b-row>
                 <b-col md="6" lg="6" class="d-flex align-items-center">
-                    <div class="img-miror">
+                    <div class="img-mirror">
                         <img src="../../../../public/img/banners/auth_teacher_bg.png" alt="" class="img-fluid">
                     </div>                </b-col>
                 <b-col md="6" lg="5" offset-lg="1">
@@ -141,8 +141,7 @@ export default {
 </script>
 
 <style lang="scss">
-    .img-miror {
-        display: block;
+    .img-mirror {
         position: relative;
         &:before {
             content: '';

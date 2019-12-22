@@ -8,6 +8,14 @@ import router from './route/router';
 import App from './App.vue';
 import Header from './components/layouts/Header.vue';
 
+import vRegion from 'v-region';
+Vue.use(vRegion);
+
+import vSelectMenu from 'v-selectmenu';
+Vue.use(vSelectMenu, {
+  language: 'en'
+});
+
 
 Vue.use(BootstrapVue);
 Vue.filter('to-uppercase', function(value) {

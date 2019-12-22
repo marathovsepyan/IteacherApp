@@ -1,39 +1,42 @@
 <template>
-        <div class="wrapper">
+    <div id="wrapper" class="wrapper d-flex">
+        <Sidebar v-if="isTeacher"/>
 
+        <div id="content-wrapper" class="content-wrapper d-flex flex-column">
             <Header :hasSideMenu="isTeacher"/>
-
-            <div class="aside-box">
-                <Sidebar v-if="isTeacher"/>
-            </div>
-
-            <div class="dash-content">
-                <section class="section-container" >
-                    <router-view/>
-                </section>
-            </div>
-
-            <Footer/>
-
+            <b-container fluid class="content">
+                <router-view />
+            </b-container>
         </div>
+
+        <Footer v-if="!isTeacher"/>
+    </div>
 </template>
 
 <script>
     import Header from './Header';
     import Sidebar from './Sidebar';
     import Footer from './Footer';
+    import { mapGetters } from 'vuex';
 
     export default {
         name: 'Layout',
         components: {
             Header,
             Sidebar,
-            Footer
+            Footer,
         },
         data() {
             return {
-                isTeacher: true
             };
+        },
+        computed: {
+            ...mapGetters({
+                role: 'role',
+            }),
+            isTeacher() {
+                return this.role === 'teacher';
+            }
         },
         created(){
             // let role = this.$store.getters.getRole;
@@ -42,43 +45,64 @@
         }
     };
 </script>
-<style>
-    .wrapper {
-        background-color: #FFFFFF;
-        display: flex;
-        flex-direction: column;
-    }
-    .wrapper .section-container.tea{
-        margin-left: 201px;
-        height: calc(100% - 60px);
-        margin-bottom: 0px!important;
-        position: absolute;
-        width: calc(100% - 201px)
-    }
-    .wrapper .section-container.std{
-        margin-left: 0px!important;
-    }
-    .wrapper .section-container .content-wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 30px 30px 48px 30px;
-        background-color: #FFFFFF;
-        height: 100%;
-        overflow-x: auto;
-    }
-    .wrapper .section-container .content-wrapper .table-pagination {
-        margin-top: auto;
-    }
-    .wrapper .section-container.std .content-wrapper{
-        padding: 12px 40px;
-    }
-    .wrapper.muted{
-        overflow: hidden;
-        height: 100%;
-    }
 
-    .wrapper .section-container .unwrap{
-        margin: -32px -40px;
+<style lang="scss">
+.wrapper {
+    .sidebar {
+        width: 200px!important;
+        min-height: 100vh;
+        padding: 10px;
+        list-style: none;
+        //background-color: $sidebar;
+        background-color: #2E323F;
+
+        &__brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            span {
+                font-size:24px;
+                font-weight:600;
+            }
+        }
+        .sidebar-item {
+            &__link {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                font-weight: 400;
+                padding: 11px;
+                color: #fff;
+                border-radius: 0.25rem;
+                &:hover,
+                &:focus {
+                    color: #fff;
+                    text-decoration: none;
+                }
+                .sidebar-link-icon {
+                    display: block;
+                    width: 16px;
+                    height: 16px;
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &.active {
+                    background-color: #5C99E1;
+                }
+            }
+        }
     }
+    .content-wrapper {
+        width: 100%;
+        overflow-x: hidden;
+
+        .content {
+            margin-top: 30px;
+            padding-right: 30px;
+            padding-left: 30px;
+        }
+    }
+}
 </style>

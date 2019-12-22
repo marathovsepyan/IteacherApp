@@ -2,9 +2,10 @@ import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import { REST_API } from '../../../config/env';
-import { getLocalStorage } from './localStorage';
+import { getLocalStorage, clearLocalStorage } from './localStorage';
 
 let isLoggedToken = getLocalStorage('token');
+let role = getLocalStorage('role');
 let isLoggedTokenBoolean = !!isLoggedToken;
 
 Vue.use(VueAxios, axios.create({
@@ -53,3 +54,12 @@ export const _delete = (url, data, config) => request('delete', REST_API + url, 
 export const setAuthHeader = (token) => {
     Vue.axios.defaults.headers.authorization = `${token}`;
 };
+
+// Add a response interceptor
+Vue.axios.interceptors.response.use(response => {
+    if (response.data.error === 'tokenError') {
+        const redirectionSubPath = role === 'teacher' ? '/teacher' : '';
+        clearLocalStorage();
+        window.location.href = `${redirectionSubPath}/login`;
+    }
+});

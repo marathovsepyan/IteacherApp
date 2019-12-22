@@ -8,7 +8,33 @@
             </b-row>
         </div>
         <div class="card__body">
-            <table-component />
+            <b-table-simple caption-top responsive :no-border-collapse="noCollapse">
+                <b-thead head-variant="light">
+                    <b-tr>
+                        <b-th olspan="1">课程</b-th>
+                        <b-th olspan="1">班级名称</b-th>
+                        <b-th olspan="1">操作</b-th>
+                    </b-tr>
+                </b-thead>
+                <b-tbody>
+                    <!-- <b-tr v-for="(item, index) in values"
+                        :key="index + 'tbody'">
+                        <b-th width="10%">allow</b-th>
+                        <b-th width="10%">/ə'laʊ/</b-th>
+                        <b-th width="10%"><a href="#">详情</a></b-th>
+                    </b-tr> -->
+                    <b-tr>
+                        <b-th width="10%">allow</b-th>
+                        <b-th width="10%">/ə'laʊ/</b-th>
+                        <b-th width="10%"><a href="#">详情</a></b-th>
+                    </b-tr>
+                    <b-tr>
+                        <b-th width="10%">allow</b-th>
+                        <b-th width="10%">/ə'laʊ/</b-th>
+                        <b-th width="10%"><a href="#">详情</a></b-th>
+                    </b-tr>
+                </b-tbody>
+            </b-table-simple>
         </div>
     </div>
 </template>
@@ -16,14 +42,12 @@
 <script>
 import CustomNavigation from '../../../components/common/CustomNavigation';
 import TabComponent from '../../../components/common/TabComponent';
-import TableComponent from '../../../components/common/TableComponent';
 
 
 export default {
     components: {
         CustomNavigation,
         TabComponent,
-        TableComponent,
     },
     data: () => ({
         selectedTabId: 0,

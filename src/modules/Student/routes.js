@@ -1,6 +1,8 @@
 const Login = () => import('./Auth/Login');
 
-export default {
+const routes = {
     path: '/login',
     component: Login,
 };
+
+export { routes };

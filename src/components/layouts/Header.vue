@@ -63,16 +63,9 @@ export default {
             signout: 'LOGOUT'
         }),
         logout() {
-            // if (this.role === 'teacher') {
-            //     this.$router.push({ path: '/teacher/login'});
-            // }
-
-            // if (this.role === 'student') {
-            //     this.$router.push({ path: '/login' });
-            // }
-
+            const redirectionSubPath = this.role === 'teacher' ? '/teacher' : '';
             this.signout();
-            this.$router.push({ path: '/login' });
+            this.$router.push({ path: `${redirectionSubPath}/login` });
         },
     },
 };

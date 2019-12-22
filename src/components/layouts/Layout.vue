@@ -39,9 +39,6 @@
             }
         },
         created(){
-            // let role = this.$store.getters.getRole;
-            // if(role == 'admin' || role == 'teacher') this.isTeacher = true;
-            // else this.isTeacher = false;
         }
     };
 </script>

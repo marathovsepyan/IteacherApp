@@ -31,23 +31,10 @@ const mutations = {
         clearLocalStorage();
     },
     [type.SIGN_IN]: (state, {user, token, role}) => {
-        console.log('token from mutation', token);
-        state.user = user;
-        state.isAuthenticated = true;
-        state.token = token;
-        state.role = role;
-        setLocalStorage('token', token);
-        setLocalStorage('role', role);
-        setLocalStorage('user', JSON.stringify(user));
+        setUserData(state, {user, token, role});
     },
     [type.SIGN_UP]: (state, {user, token, role}) => {
-        state.user = user;
-        state.isAuthenticated = true;
-        state.token = token;
-        state.role = role;
-        setLocalStorage('token', token);
-        setLocalStorage('role', role);
-        setLocalStorage('user', JSON.stringify(user));
+        setUserData(state, {user, token, role});
     },
 };
 
@@ -78,6 +65,16 @@ const actions = {
         }
     },
 };
+
+function setUserData(state, {user, token, role}) {
+    state.user = user;
+    state.isAuthenticated = true;
+    state.token = token;
+    state.role = role;
+    setLocalStorage('token', token);
+    setLocalStorage('role', role);
+    setLocalStorage('user', JSON.stringify(user));
+}
 
 export default {
     state: defaultState,

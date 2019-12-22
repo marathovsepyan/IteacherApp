@@ -8,9 +8,8 @@ const Homeworks = () => import('./Homework/Homeworks');
 const HomeworkStatistics = () => import('./Homework/HomeworkStatistics');
 const Courses = () => import('./Course/Courses');
 
-export default {
+const routes = {
     path: '/teacher',
-    // redirect: '/teacher/login',
     component: Index,
     children: [
       {
@@ -35,7 +34,7 @@ export default {
         children: [
           {
             path: 'courses',
-            name: 'teacher-couses',
+            name: 'teacher-courses',
             component: Courses,
           },
           {
@@ -54,3 +53,5 @@ export default {
       },
     ],
 };
+
+export { routes };

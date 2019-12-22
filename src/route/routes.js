@@ -1,8 +1,8 @@
 // const Login = () => import('../components/pages/Login');
 // import Register from '../components/pages/Register';
 // import PageNotFound from '../components/layouts/PageNotFound';
-import { routes as Teacher } from '@/modules/Teacher';
-import { routes as Student } from '@/modules/Student';
+import { routes as Teacher } from '@/modules/Teacher/routes.js';
+import { routes as Student } from '@/modules/Student/routes.js';
 
 export const routes = [
     {

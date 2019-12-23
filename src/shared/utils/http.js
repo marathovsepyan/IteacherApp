@@ -56,10 +56,11 @@ export const setAuthHeader = (token) => {
 };
 
 // Add a response interceptor
-Vue.axios.interceptors.response.use(response => {
+Vue.axios.interceptors.response.use((response) => {
     if (response.data.error === 'tokenError') {
         const redirectionSubPath = role === 'teacher' ? '/teacher' : '';
         clearLocalStorage();
         window.location.href = `${redirectionSubPath}/login`;
     }
-});
+    return Promise.resolve(response);
+}, err => Promise.reject(err));

@@ -50,7 +50,6 @@ const actions = {
 
         if (data) {
             const { token, role } = data.userInfo;
-            console.log("token", token);
             setAuthHeader(token);
             commit(type.SIGN_IN, {user: data.userInfo, token: token, role: role});
         }

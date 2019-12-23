@@ -1,50 +1,65 @@
 <template>
-    <div class="card overflow-hidden border-0">
-        <div class="card__header">
-            <b-row class="justify-content-end">
-                <button>添加课程</button>
-            </b-row>
+    <div class="card-wrapper">
+        <div class="card overflow-hidden border-0">
+            <div class="card__header">
+                <b-row class="justify-content-end">
+                    <button>添加课程</button>
+                </b-row>
+            </div>
+            <div class="card__body">
+                <b-table-simple caption-top responsive :no-border-collapse="true">
+                    <b-thead head-variant="light">
+                        <b-tr>
+                            <b-th>班级名称</b-th>
+                            <b-th>课程</b-th>
+                            <b-th>操作</b-th>
+                        </b-tr>
+                    </b-thead>
+                    <b-tbody>
+                        <b-tr v-for="(item, index) in tmpData"
+                            :key="index + 'tbody'">
+                            <b-th width="10%">{{ item.name }}</b-th>
+                            <b-th width="10%">{{ item.createdAt }}</b-th>
+                            <b-th width="10%"><a href="#">详情</a></b-th>
+                        </b-tr>
+                    </b-tbody>
+                </b-table-simple>
+            </div>
         </div>
-        <div class="card__body">
-            <b-table-simple caption-top responsive :no-border-collapse="true">
-                <b-thead head-variant="light">
-                    <b-tr>
-                        <b-th>班级名称</b-th>
-                        <b-th>课程</b-th>
-                        <b-th>操作</b-th>
-                    </b-tr>
-                </b-thead>
-                <b-tbody>
-                    <b-tr v-for="(item, index) in courses"
-                        :key="index + 'tbody'">
-                        <b-th width="10%">{{ item.name }}</b-th>
-                        <b-th width="10%">{{ item.createdAt }}</b-th>
-                        <b-th width="10%"><a href="#">详情</a></b-th>
-                    </b-tr>
-                </b-tbody>
-            </b-table-simple>
+        <div class="content-pagination d-flex justify-content-center">
+            <pagination
+                :currentPage="currentPage"
+                :totalPages="courses.length"
+                @changePage="changePage"
+            ></pagination>
         </div>
     </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import Pagination from '../../../components/common/Pagination';
 
 export default {
     name: 'CoursesComponent',
     components: {
+        Pagination,
     },
     data: () => ({
         selectedTabId: 0,
+        currentPage: 1,
     }),
     computed: {
         ...mapGetters({
             courses: 'getCourses',
-        })
+        }),
+        tmpData() {
+            let offset = (this.currentPage) * 2;
+            return this.courses.slice(offset, offset + 2);
+        }
     },
     async created() {
         await this.viewCourses();
-        console.log("this.courses", this.courses);
     },
     methods: {
         ...mapActions({
@@ -54,6 +69,9 @@ export default {
             this.selectedTabID = index;
             // this.currentPage = 0;
             // this.fliterPageData();
+        },
+        changePage(v) {
+            this.currentPage = v;
         },
     },
 };

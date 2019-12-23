@@ -52,6 +52,9 @@
         list-style: none;
         //background-color: $sidebar;
         background-color: #2E323F;
+        position: fixed;
+        top: 0;
+        left: 0;
 
         &__brand {
             display: flex;
@@ -93,7 +96,7 @@
     }
     .content-wrapper {
         width: 100%;
-        overflow-x: hidden;
+        padding-left: 200px;
 
         .content {
             margin-top: 30px;

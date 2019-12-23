@@ -139,16 +139,13 @@ export default {
         ],
     }),
     methods: {
-        regionChange(data){
-            console.log(data);
+        regionChange(){
         },
         doSome () {
         },
         showLog () {
-            console.log('show');
         },
         hideLog () {
-            console.log('hide');
         },
         values (data) {
             if (data && data.length) {

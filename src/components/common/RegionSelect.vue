@@ -11,8 +11,7 @@ export default {
         vRegion,
     },
     methods: {
-        regionChange(data){
-            console.log(data);
+        regionChange(){
         }
     }
 };

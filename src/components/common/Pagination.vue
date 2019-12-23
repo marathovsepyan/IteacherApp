@@ -1,38 +1,41 @@
 <template>
-  <div class="pagination-container">
-    <div class="">
-        <v-pagination :value="page"
-                    @input="handlePageChange"
-                    :page-count="total"
-                    :classes="bootstrapPaginationClasses"
-                    :labels="paginationAnchorTexts"></v-pagination>
-    </div>
-    <span class="status">{{ page }}/{{total}}</span>
-    <span class="go-to-text">Go to</span>
-    <input class="width-full go-to-input" v-model="goToPage" type="text" placeholder="">
-    <span>Page</span>
-    <custom-button class="go-to-button" name="view" @click="handlePageChange">View</custom-button>
-  </div>
+  <b-row class="justify-content-center">
+    <b-col>
+      <b-pagination :value="page"
+          @input="handlePageChange"
+          :total-rows="totalPages - 1"
+          :per-page="offset"
+          label-first-page=""
+          prev-text=">"
+          next-text=">"
+          label-last-page=""></b-pagination>
+    </b-col>
+    <b-col>
+      <div class="go-page">
+        <span class="status">{{ page }}/{{ total }}</span>
+        <span class="go-page__text">Go to</span>
+        <input class="go-page__input" v-model="goToPage" type="text" placeholder="">
+        <span>Page</span>
+        <button class="go-page__button" name="view" @click="handlePageChange">View</button>
+      </div>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
-import vPagination from 'vue-plain-pagination';
-import CustomButton from '@/components/Common/CustomButton';
 
 export default {
   name: 'Pagination',
-  components: {
-    vPagination,
-    CustomButton
-  },
   props: {
     currentPage: Number,
     totalPages: Number,
+    offset: { type: Number, default: 2},
   },
   data() {
     return {
       page: 1,
       goToPage: null,
+      perPage: 2,
       bootstrapPaginationClasses: {
         ul: 'pagination',
         li: 'page-item',
@@ -50,11 +53,11 @@ export default {
   },
   computed: {
     total() {
-      return this.totalPages === 0 ? 1 : Math.ceil(this.totalPages / 10);
+      return this.totalPages === 0 ? 1 : Math.ceil(this.totalPages / this.offset);
     }
   },
   created() {
-    this.page = +this.currentPage + 1;
+    this.page = +this.currentPage;
   },
   methods: {
     changePage() {
@@ -71,24 +74,16 @@ export default {
       }
 
       this.page = e;
-      this.$emit('changePage', this.page - 1);
+      this.$emit('changePage', this.page);
     }
   }
 };
 </script>
 
 <style lang="scss">
-.pagination-container {
-  font-family:Helvetica;
-  display: flex;
-  margin: auto;
-  color: #333333;
-  justify-content: center;
-  align-items: center;
+.content-pagination {
+  padding: 50px 0;
   ul.pagination {
-    display: flex;
-    margin-bottom: 0;
-    margin-right: 16px;
     li.page-item {
       .page-link {
         padding: 6px 11px 7px 12px;
@@ -96,7 +91,7 @@ export default {
         border-radius: 3px;
         border: 1px solid #C4C6CF;
         font-size: 12px;
-        line-height: 13px;
+        font-weight: 400;
         color: #333333;
         margin-left: 3px;
       }
@@ -111,37 +106,39 @@ export default {
         line-height: 15px;
         background: #999999;
       }
+      &[role="separator"] {
+        .page-link {
+          border: none;
+        }
+      }
     }
   }
-  .go-to-text {
-    // margin: 1px 2px 1px 21px;
-    margin-left: 21px;
-  }
-  .go-to-input {
-    width: 36px;
-    padding: 6px 11px 7px 12px;
-    background: #ffffff;;
-    border-radius: 3px;
-    border: 1px solid #C4C6CF;
-    margin-left: 3px;
-    margin-right: 4px;
-    font-size: 12px;
-    line-height: 13px;
-  }
-  span {
-    font-size: 12px;
-    font-family: Helvetica;
-    color: #999999;
-    line-height: 14px;
-  }
-  .go-to-button {
-    background: #fff;
-    border-radius: 3px;
-    border: 1px solid #C4C6CF;
-    margin-left: 3px;
-  }
-  .status {
-    font-size: 14px;
+  .go-page {
+    &__text {
+      margin-left: 21px;
+    }
+    &__input {
+      height: 30px;
+      padding: 4px 6px 4px 6px;
+      background: #ffffff;
+      border-radius: 3px;
+      border: 1px solid #C4C6CF;
+      margin-left: 3px;
+      margin-right: 4px;
+      font-size: 12px;
+    }
+    span {
+
+    }
+    &__button {
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #C4C6CF;
+      margin-left: 3px;
+    }
+    .status {
+
+    }
   }
 }
 </style>

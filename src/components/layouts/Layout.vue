@@ -96,9 +96,11 @@
     }
     .content-wrapper {
         width: 100%;
+        min-height: 100vh;
         padding-left: 200px;
 
         .content {
+            height: 100%;
             margin-top: 30px;
             padding-right: 30px;
             padding-left: 30px;

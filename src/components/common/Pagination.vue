@@ -1,31 +1,36 @@
 <template>
   <b-row class="justify-content-center">
-    <b-col>
-      <b-pagination :value="page"
-          @input="handlePageChange"
-          :total-rows="totalPages - 1"
-          :per-page="offset"
-          label-first-page=""
-          prev-text=">"
-          next-text=">"
-          label-last-page=""></b-pagination>
-    </b-col>
-    <b-col>
-      <div class="go-page">
-        <span class="status">{{ page }}/{{ total }}</span>
-        <span class="go-page__text">Go to</span>
-        <input class="go-page__input" v-model="goToPage" type="text" placeholder="">
-        <span>Page</span>
-        <button class="go-page__button" name="view" @click="handlePageChange">View</button>
-      </div>
-    </b-col>
+    <b-pagination :value="page"
+        @input="handlePageChange"
+        :total-rows="totalPages - 1"
+        :per-page="offset"
+        label-first-page=""
+        :hide-goto-end-buttons="hideNavEndButtons"
+        class="m-0"
+        label-last-page="">
+          <template v-slot:prev-text><ArrowLeft/> Previous</template>
+          <template v-slot:next-text>Next <ArrowRight/></template>
+        </b-pagination>
+    <div class="go-page d-flex align-items-center">
+      <span class="go-page__status">{{ page }}/{{ total }}</span>
+      <span class="text-muted">Go to</span>
+      <input class="go-page__input" v-model="goToPage" type="text" placeholder="">
+      <span class="text-muted">Page</span>
+      <button class="go-page__button" name="view" @click="handlePageChange">View</button>
+    </div>
   </b-row>
 </template>
 
 <script>
+import ArrowLeft from '../../../public/svg/arrow-left.svg';
+import ArrowRight from '../../../public/svg/arrow-right.svg';
 
 export default {
   name: 'Pagination',
+  components: {
+    ArrowLeft,
+    ArrowRight,
+  },
   props: {
     currentPage: Number,
     totalPages: Number,
@@ -36,6 +41,7 @@ export default {
       page: 1,
       goToPage: null,
       perPage: 2,
+      hideNavEndButtons: true,
       bootstrapPaginationClasses: {
         ul: 'pagination',
         li: 'page-item',
@@ -86,19 +92,25 @@ export default {
   ul.pagination {
     li.page-item {
       .page-link {
-        padding: 6px 11px 7px 12px;
-        background: #ffffff;
+        padding: 7px 11px 5px;
+        background-color: #ffffff;
         border-radius: 3px;
         border: 1px solid #C4C6CF;
         font-size: 12px;
         font-weight: 400;
         color: #333333;
         margin-left: 3px;
+        &:hover {
+          background-color: #C4C6CF;
+        }
+        svg {
+            margin: 0 4px;
+        }
       }
       .pagination-link--active {
         background-color: #5584FF;
         color: #ffffff;
-        border: 1px solid rgba(85,132,255,1);
+        border: 1px solid #5584FF;
       }
       .span {
         border: 0;
@@ -111,33 +123,42 @@ export default {
           border: none;
         }
       }
+      &.active {
+        .page-link {
+          border-color: #5584FF;
+          background-color: #5584FF;
+          color: #fff;
+        }
+      }
     }
   }
   .go-page {
-    &__text {
-      margin-left: 21px;
+    &__status {
+      margin: 0 20px;
     }
     &__input {
-      height: 30px;
+      max-width: 40px;
+      height: 29px;
       padding: 4px 6px 4px 6px;
       background: #ffffff;
       border-radius: 3px;
       border: 1px solid #C4C6CF;
-      margin-left: 3px;
-      margin-right: 4px;
+      margin: 0 4px;
       font-size: 12px;
-    }
-    span {
-
     }
     &__button {
       background: #fff;
       border-radius: 3px;
       border: 1px solid #C4C6CF;
-      margin-left: 3px;
-    }
-    .status {
-
+      margin: 0 4px;
+      height: 29px;
+      padding: 4px 10px;
+      &:hover,
+      &:focus {
+        border-color: #5584FF;
+        background-color: #5584FF;
+        color: #fff;
+      }
     }
   }
 }

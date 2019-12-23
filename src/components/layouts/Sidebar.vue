@@ -68,6 +68,10 @@
             font-size:24px;
             font-weight:600;
         }
+        &:hover,
+        &:focus {
+            text-decoration: none;
+        }
     }
     .sidebar-item {
         &__link {

@@ -4,6 +4,7 @@
 .l-wrap {
     &__header {
         h2 {
+            font-weight: 500;
             margin: 0 0 0 22px;
         }
     }
@@ -45,7 +46,7 @@
             }
 
             .clear-btn {
-                top: 6px;
+                top: 7px;
                 right: 1px;
             }
         }
@@ -53,5 +54,56 @@
     &__footer {
         padding-left: 70px;
         padding-right: 70px;
+    }
+}
+
+.card-wrapper {
+    height: 100%;
+    .card {
+        flex: 1 1 auto;
+        &__header {
+            position: relative;
+            padding: 20px;
+        }
+        &__body {
+            .table {
+                font-size: 12px;
+                font-weight: 400;
+                color: $gray-900;
+
+                th {
+                    padding: 0.7rem;
+                }
+
+                thead {
+                    th {
+                        vertical-align: middle;
+                        text-align: center;
+                        border: none;
+                        background: rgba(235,236,240,1);
+                        &.custom-border {
+                            border-width: 0 1px;
+                            border-style: solid;
+                            border-color: $white;
+                        }
+                        .th-rowspan {
+                            border-top: 1px solid $white;
+                            span {
+                                display: block;
+                                padding: 2px 4px;
+                            }
+                        }
+                    }
+                }
+                tbody {
+                    th {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .content-pagination {
+        font-size: 12px;
     }
 }

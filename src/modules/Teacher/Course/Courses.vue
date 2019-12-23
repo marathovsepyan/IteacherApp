@@ -1,9 +1,9 @@
 <template>
-    <div class="card-wrapper">
+    <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <b-row class="justify-content-end">
-                    <button>添加课程</button>
+                <b-row class="justify-content-end m-0">
+                    <b-button variant="primary" size="sm">添加课程</b-button>
                 </b-row>
             </div>
             <div class="card__body">
@@ -20,13 +20,17 @@
                             :key="index + 'tbody'">
                             <b-th width="10%">{{ item.name }}</b-th>
                             <b-th width="10%">{{ item.createdAt }}</b-th>
-                            <b-th width="10%"><a href="#">详情</a></b-th>
+                            <b-th width="10%">
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">添加课程</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0 text-warning">添加课程</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">添加课程</b-button>
+                            </b-th>
                         </b-tr>
                     </b-tbody>
                 </b-table-simple>
             </div>
         </div>
-        <div class="content-pagination d-flex justify-content-center">
+        <div class="content-pagination">
             <pagination
                 :currentPage="currentPage"
                 :totalPages="courses.length"
@@ -76,48 +80,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss">
-.card {
-    &__header {
-        position: relative;
-        padding: 20px;
-    }
-    &__body {
-        .table {
-            font-size: 12px;
-            font-weight: 400;
-            color: #333;
-
-            thead {
-                th {
-                    vertical-align: middle;
-                    text-align: center;
-                    border: none;
-                    background: rgba(235,236,240,1);
-                    &.custom-border {
-                        border-width: 0 1px;
-                        border-style: solid;
-                        border-color: #fff;
-                    }
-                    .th-rowspan {
-                        border-top: 1px solid #fff;
-                        span {
-                            display: block;
-                            padding: 2px 4px;
-                        }
-                    }
-                }
-            }
-            tbody {
-                th {
-                    text-align: center;
-                }
-            }
-        }
-    }
-}
-.content-pagination {
-    font-size: 12px;
-}
-</style>

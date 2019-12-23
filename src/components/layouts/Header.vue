@@ -72,29 +72,28 @@ export default {
 </script>
 
 <style lang="scss">
-.navbar {
-    padding-top: 18px;
-    padding-bottom: 18px;
-    .nav-item {
-        .nav-link {
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            color: #333;
-            padding: 0 20px;
-            .user-img {
-                width: 26px;
-                height: 26px;
-                margin-right: 8px;
-            }
-        }
-        &:last-child {
+    .navbar {
+        padding: 18px 30px;
+        .nav-item {
             .nav-link {
-                padding-right: 0;
+                font-size: 14px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                color: #333;
+                padding: 0 20px;
+                .user-img {
+                    width: 26px;
+                    height: 26px;
+                    margin-right: 8px;
+                }
+            }
+            &:last-child {
+                .nav-link {
+                    padding-right: 0;
+                }
             }
         }
     }
-}
 </style>

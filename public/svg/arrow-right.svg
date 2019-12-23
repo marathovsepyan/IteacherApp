@@ -1,6 +1,6 @@
-<svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+<svg id="arrow-right" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 12 12">
   <g id="编组">
     <path id="路径" d="M.2.139A.578.578,0,0,1,1.016.2L7.032,5.168a.577.577,0,0,1,0,.752L1.016,10.887a.577.577,0,0,1-.877-.752L5.833,5.544.139.953A.578.578,0,0,1,.2.139Z" transform="translate(2.424 0.445)" fill="#666"/>
-    <rect id="矩形" width="12" height="12" fill="none"/>
+    <rect id="矩形" fill="none"/>
   </g>
 </svg>

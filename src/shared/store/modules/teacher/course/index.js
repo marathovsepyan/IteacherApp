@@ -20,7 +20,7 @@ const mutations = {
 };
 
 const actions = {
-    [type.GET_COURSES]: async ({commit}) => {
+    getCourses: async ({commit}) => {
         const data = await getCourses();
         commit(type.GET_COURSES, {courses: data});
     },

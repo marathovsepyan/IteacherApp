@@ -61,6 +61,7 @@ Vue.axios.interceptors.response.use((response) => {
         const redirectionSubPath = role === 'teacher' ? '/teacher' : '';
         clearLocalStorage();
         window.location.href = `${redirectionSubPath}/login`;
+        Promise.reject(response);
     }
-    return Promise.resolve(response);
+    return response;
 }, err => Promise.reject(err));

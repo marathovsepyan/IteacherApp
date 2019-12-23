@@ -9,7 +9,7 @@ const routes = {
     children: [
         {
             path: 'login',
-            name: 'student-login',
+            name: 'Login',
             component: Login,
         },
         {

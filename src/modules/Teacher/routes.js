@@ -30,7 +30,10 @@ const routes = {
       {
         path: '',
         component: Layout,
-        meta: { auth: true },
+        meta: {
+          auth: true,
+          role: 'teacher'
+        },
         children: [
           {
             path: 'courses',

@@ -63,7 +63,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            viewCourses: 'GET_COURSES',
+            viewCourses: 'getCourses',
         }),
         selectTab(index){
             this.selectedTabID = index;

@@ -63,7 +63,7 @@ export default {
     }
   },
   created() {
-    this.page = +this.currentPage;
+    // this.page = +this.currentPage;
   },
   methods: {
     changePage() {
@@ -80,7 +80,7 @@ export default {
       }
 
       this.page = e;
-      this.$emit('changePage', this.page);
+      this.$emit('changePage', this.page - 1);
     }
   }
 };

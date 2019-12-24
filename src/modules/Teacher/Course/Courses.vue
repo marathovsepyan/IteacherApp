@@ -21,9 +21,9 @@
                             <b-th width="10%" @click="() => toUnites(item)">{{ item.name }}</b-th>
                             <b-th width="10%">{{ item.createdAt }}</b-th>
                             <b-th width="10%">
-                                <b-button variant="link" size="sm" class="pt-0 pb-0">添加课程</b-button>
-                                <b-button variant="link" size="sm" class="pt-0 pb-0 text-warning">添加课程</b-button>
-                                <b-button variant="link" size="sm" class="pt-0 pb-0">添加课程</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">发布</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0 text-warning">编辑</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">删除</b-button>
                             </b-th>
                         </b-tr>
                     </b-tbody>
@@ -50,7 +50,7 @@ export default {
     },
     data: () => ({
         selectedTabId: 0,
-        currentPage: 1,
+        currentPage: 0,
     }),
     computed: {
         ...mapGetters({

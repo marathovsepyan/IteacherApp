@@ -1,5 +1,9 @@
 @import './variable.scss';
 
+body {
+    color: #333;
+}
+
 //Typography
 h1,
 h2,
@@ -30,6 +34,10 @@ h2 {
 
 .text-muted {
     color: $gray-500 !important;
+}
+
+.text-yellow {
+    color: $yellow !important;
 }
 
 .text-sm {

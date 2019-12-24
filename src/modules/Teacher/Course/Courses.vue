@@ -34,6 +34,7 @@
             <pagination
                 :currentPage="currentPage"
                 :totalPages="courses.length"
+                :offset="2"
                 @changePage="changePage" />
         </div>
     </div>

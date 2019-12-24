@@ -1,28 +1,30 @@
 import * as type from './mutation-types';
 import {
-    getUnites,
+    getUnits,
 } from '../../../../utils/endpoints';
 
 const defaultState = {
     units: [],
+    isPublished: false,
     unit: {},
 };
 
 const getters = {
     getUnits: state => state.units,
-    getCourse: state => state.unit,
+    getUnit: state => state.unit,
 };
 
 const mutations = {
-    [type.GET_UNITS]: (state, {unites}) => {
-        state.unite = unites;
+    [type.SET_UNITS]: (state, {ispublished, units}) => {
+        state.units = units;
+        state.isPublished = ispublished;
     },
 };
 
 const actions = {
-    getUnites: async ({commit}, { course_id, }) => {
-        const data = await getUnites(course_id);
-        commit(type.GET_UNITS, {units: data});
+    getUnits: async ({commit}, { course_id, }) => {
+        const { ispublished, units } = await getUnits(course_id);
+        commit(type.SET_UNITS, {ispublished, units});
     },
 };
 

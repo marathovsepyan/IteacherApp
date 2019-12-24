@@ -17,14 +17,34 @@
             </b-row>
         </div>
         <b-row>
-            <b-col md="8">
-                <div class="card p-2">
-                    <div class="card__header">
-
+            <b-col md="7">
+                <div class="card chart-container">
+                    <div class="card__header d-flex">
+                        <div data-v-640ef3a2="" class="chart-header mr-auto">
+                            <span @click="changeAnalType(0)" class="cursor-pointer fn-16">分</span>
+                            <span class="separator" />
+                            <span @click="changeAnalType(1)" class="cursor-pointer fn-16">准确率</span>
+                        </div>
+                        <toggle-button
+                            :value="true"
+                            :sync="true"
+                            :labels="{checked: '周', unchecked: '月'}"
+                            :fontSize="16"
+                            :width="59"
+                            :height="31"
+                            :color="{checked: '#5C99E1', unchecked: '#5C99E1'}"
+                            @change="changeDateRange($event)"/>
+                    </div>
+                    <div class="card__body">
+                        <admin-chart
+                            style="height: 420px; width: 100%"
+                            :unit="analType ? '%' : '分'"
+                            :labels="graphLabels"
+                            :datas="graphDatas"/>
                     </div>
                 </div>
             </b-col>
-            <b-col md="4">
+            <b-col md="5">
                 <div class="card border-0">
                     <div class="leaderboard">
                         <h2 class="leaderboard__title text-center">排行榜</h2>
@@ -32,7 +52,7 @@
                             <b-tab title="总分" active>
                                 <div class="leaderboard__row d-flex align-items-center m-0">
                                     <div class="leaderboard__user d-flex align-items-center">
-                                        <span class="tex`t-yellow">1</span>
+                                        <span class="text-yellow">1</span>
                                         <div class="user-photo">
                                             <ImgWrrapperGold/>
                                         </div>
@@ -50,7 +70,7 @@
                                     <div class="leaderboard__user d-flex align-items-center">
                                         <span class="text-muted">2</span>
                                         <div class="user-photo">
-                                            <ImgWrrapperSilver/>
+                                            <ImgWrrapperSilver />
                                         </div>
                                     </div>
                                     <div class="leaderboard__info text-left">
@@ -123,6 +143,8 @@
 
 <script>
 import CustomSelect from '../../components/common/CustomSelect.vue';
+import ToggleButton from '../../components/common/ToggleButton.vue';
+import AdminChart from '../../components/common/AdminChart.vue';
 import ImgWrrapperGold from '../../../public/svg/img_wrrapper_1.svg';
 import ImgWrrapperSilver from '../../../public/svg/img_wrrapper_2.svg';
 import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
@@ -130,13 +152,42 @@ import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
     export default {
         components: {
             CustomSelect,
+            ToggleButton,
+            AdminChart,
             ImgWrrapperGold,
             ImgWrrapperSilver,
             ImgWrrapperBronze,
         },
         data: () => ({
+            dateType: null,
+            analType: 0,
+            graphLabels: [],
+            graphDatas: [],
         }),
         methods: {
+            changeDateRange(e){
+                if (e.value) this.dateType = 'week';
+                else this.dateType = 'month';
+
+                // this.updateGraphData();
+            },
+            changeAnalType(val){
+                this.analType = val;
+                // this.updateGraphData();
+            },
+            updateGraphData(){
+                if (this.dateType === 'week') this.graphLabels = ['4月01', '07', '12', '18', '24', '30'];
+                else this.graphLabels = ['4月11', '12', '13', '14', '15', '16', '17'];
+
+                this.graphDatas = [];
+                for (let i = 0; i < 3 ; i++){
+                    let dataArray = [];
+                    for (let j = 0; j < this.graphLabels.length; j++){
+                        dataArray.push( Math.round(Math.random() * 40 + 40));
+                    }
+                    this.graphDatas.push(dataArray);
+                }
+            },
         },
     };
 </script>
@@ -144,6 +195,13 @@ import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
 <style lang="scss">
     .tab-content > .tab-pane:focus {
         outline: none;
+    }
+    .chart-container {
+        padding: 17px;
+        .separator {
+            border-left: 2px solid rgb(227, 215, 215);
+            margin: 3px 13px 3px 12px;
+        }
     }
     .leaderboard {
         padding: 20px 15px;

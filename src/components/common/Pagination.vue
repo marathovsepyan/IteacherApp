@@ -34,7 +34,7 @@ export default {
   props: {
     currentPage: Number,
     totalPages: Number,
-    offset: { type: Number, default: 2},
+    offset: { type: Number, default: 10},
   },
   data() {
     return {

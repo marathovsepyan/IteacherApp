@@ -1,9 +1,13 @@
 <template>
     <div class="card__nav">
         <ul class="d-flex list-unstyled m-0">
-            <li><router-link to="">班级</router-link></li>
-            <li><ArrowRight/></li>
-            <li><router-link to="">学习课程情况</router-link></li>
+            <li v-for="(route, index) in routes"
+                :key="index + 'route'">
+                <router-link to="">{{ route.name }}</router-link>
+                <ArrowRight v-if="routes.length - 1 !== index"/>
+            </li>
+<!--            <li><ArrowRight/></li>-->
+<!--            <li><router-link to="">学习课程情况</router-link></li>-->
         </ul>
     </div>
 </template>
@@ -17,8 +21,11 @@ export default {
         ArrowRight,
     },
     props: {
-      routes: { type: Array, },
+      routes: { type: Array},
     },
+    data: () => ({
+        defRoutes: [{name: '班级'}, {name: '学习课程情况'}],
+    })
 };
 </script>
 

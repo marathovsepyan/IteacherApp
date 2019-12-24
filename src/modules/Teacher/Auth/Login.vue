@@ -4,12 +4,12 @@
             <b-row>
                 <b-col md="6" lg="6" class="d-flex align-items-center">
                     <div class="img-mirror">
-                        <img src="../../../../public/img/banners/auth_teacher_bg.png" alt="" class="img-fluid">
+                        <img src="/img/banners/auth_teacher_bg.png" alt="" class="img-fluid">
                     </div>                </b-col>
                 <b-col md="6" lg="5" offset-lg="1">
                     <div class="l-wrap">
                         <div class="l-wrap__header d-flex align-items-center">
-                            <img src="../../../../public/img/icons/logo.png" alt="logo" width="80" height="80">
+                            <img src="/img/icons/logo.png" alt="logo" width="80" height="80">
                             <h2 class="text-primary">您好,欢迎来到iTeacher</h2>
                         </div>
                         <div class="l-wrap__body">
@@ -97,11 +97,11 @@
                         </div>
                         <div class="l-wrap__footer d-flex justify-content-between">
                             <div class="col-6 text-center">
-                                <img src="../../../../public/img/icons/social_1_light.png" alt="social_1_light" width="40" height="40">
+                                <img src="/img/icons/social_1_light.png" alt="social_1_light" width="40" height="40">
                                 <p class="m-0 mt-1 text-light text-sm">微信登录</p>
                             </div>
                             <div class="col-6 text-center">
-                                <img src="../../../../public/img/icons/social_2_light.png" alt="social_2_light" width="40" height="40">
+                                <img src="/img/icons/social_2_light.png" alt="social_2_light" width="40" height="40">
                                 <p class="m-0 mt-1 text-light text-sm">QQ登录</p>
                             </div>
                         </div>
@@ -151,7 +151,7 @@ export default {
             position: absolute;
             bottom: -596px;
             left: 0;
-            background-image: url('../../../../public/img/banners/auth_teacher_bg.png');
+            background-image: url('/img/banners/auth_teacher_bg.png');
             background-repeat: no-repeat;
             background-size: 100% auto;
             background-position: center bottom;

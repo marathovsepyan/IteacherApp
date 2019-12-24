@@ -1,4 +1,5 @@
 import Layout from "../../components/layouts/Layout";
+import { getLocalStorage } from "../../shared/utils/localStorage";
 const Index = () => import('./Auth/Index');
 const Login = () => import('./Auth/Login');
 const Register = () => import('./Auth/Register');
@@ -29,7 +30,15 @@ const routes = {
             component: Layout,
             meta: {
                 auth: true,
-                role: 'student'
+            },
+            beforeEnter(to, from, next) {
+                const role = getLocalStorage('role');
+
+                if (role !== 'student'){
+                    next({ name: `${role}-home`});
+                } else {
+                    next();
+                }
             },
             children: [
                 {

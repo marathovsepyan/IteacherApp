@@ -4,6 +4,7 @@ const SmsVerification = () => import('./Auth/SmsVerification');
 const Index = () => import('./Auth/Index');
 
 import Layout from '../../components/layouts/Layout';
+import { getLocalStorage } from '../../shared/utils/localStorage';
 const Homework = () => import('./Homework/Homework');
 const HomeworkInfo = () => import('./Homework/HomeworkInfo');
 const Homeworks = () => import('./Homework/Homeworks');
@@ -41,10 +42,19 @@ const routes = {
           auth: true,
           role: 'teacher'
         },
+        beforeEnter(to, from, next) {
+          const role = getLocalStorage('role');
+
+          if (role !== 'teacher'){
+            next({ name: `${role}-home`});
+          } else {
+            next();
+          }
+        },
         children: [
           {
             path: 'dashboard',
-            name: 'teacher-dashboard',
+            name: 'teacher-home',
             component: Dashboard,
           },
           {

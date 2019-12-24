@@ -24,7 +24,7 @@ export const checkAuthentication = (router) => {
                     roleMiddleware(to, from, next);
                     if (role === 'teacher'){
                         next({
-                            path: '/teacher/homeworks',
+                            path: '/teacher/homework',
                         });
                     }
                     if (role === 'student') {

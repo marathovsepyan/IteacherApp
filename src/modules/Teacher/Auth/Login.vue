@@ -26,7 +26,7 @@
                                             v-model="phone"
                                             :state="state"
                                             placeholder="请输入手机号"
-                                            class="form-outline rounded-0"></b-form-input>
+                                            class="form-outline rounded-0" />
                                     </b-form-group>
 
                                     <b-form-group
@@ -41,7 +41,7 @@
                                             :state="state"
                                             type="password"
                                             placeholder="请输入密码"
-                                            class="form-outline rounded-0"></b-form-input>
+                                            class="form-outline rounded-0" />
                                     </b-form-group>
 
                                     <b-form-group>
@@ -64,7 +64,7 @@
                                         v-model="name"
                                         :state="state"
                                         placeholder="请输入手机号"
-                                        class="form-outline rounded-0"></b-form-input>
+                                        class="form-outline rounded-0" />
                                     </b-form-group>
 
                                     <b-form-group
@@ -78,7 +78,7 @@
                                                 :state="state"
                                                 type="password"
                                                 placeholder="请输入密码"
-                                                class="form-outline rounded-0"></b-form-input>
+                                                class="form-outline rounded-0" />
                                             <b-input-group-append>
                                                 <b-button variant="link text-xs">获取验证码</b-button>
                                             </b-input-group-append>
@@ -133,8 +133,9 @@ export default {
             await this.signIn({
                 phone: this.phone,
                 password: this.password,
+                role: 'teacher',
             });
-            this.$router.push({ name: 'teacher-homeworks'});
+            this.$router.push({ name: 'teacher-homework'});
         },
     }
 };

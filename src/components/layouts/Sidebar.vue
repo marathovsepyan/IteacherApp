@@ -22,7 +22,7 @@
                 menuList: [
                     {icon: 'dashboard', name: '数据面板', link: '/teacher/dashboard'},
                     {icon: 'course', name: '课程', link: '/teacher/courses'},
-                    {icon: 'homework', name: '作业', link: '/teacher/homeworks'},
+                    {icon: 'homework', name: '作业', link: '/teacher/homework'},
                     {icon: 'class', name: '班级', link: '/teacher/class'},
                     {icon: 'student', name: '学生', link: '/teacher/student'}
                 ],

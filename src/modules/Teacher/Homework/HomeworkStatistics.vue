@@ -40,7 +40,7 @@
                             <b-th width="10%">30</b-th>
                             <b-th width="10%">61</b-th>
                             <b-th width="10%">62</b-th>
-                            <b-th width="10%"><a href="#">详情</a></b-th>
+                            <b-th width="10%"><router-link to="sentence_id/details">详情</router-link></b-th>
                         </b-tr>
                         <b-tr>
                             <b-th width="10%">allow</b-th>

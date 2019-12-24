@@ -18,7 +18,7 @@
                     <b-tbody>
                         <b-tr v-for="(item, index) in tmpData"
                             :key="index + 'tbody'">
-                            <b-th width="10%">{{ item.name }}</b-th>
+                            <b-th width="10%" @click="() => toUnites(item)">{{ item.name }}</b-th>
                             <b-th width="10%">{{ item.createdAt }}</b-th>
                             <b-th width="10%">
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">添加课程</b-button>
@@ -34,8 +34,7 @@
             <pagination
                 :currentPage="currentPage"
                 :totalPages="courses.length"
-                @changePage="changePage"
-            ></pagination>
+                @changePage="changePage" />
         </div>
     </div>
 </template>
@@ -76,6 +75,9 @@ export default {
         },
         changePage(v) {
             this.currentPage = v;
+        },
+        toUnites(course) {
+            this.$router.push({name: 'teacher-course-unites', params: { id: course.id }});
         },
     },
 };

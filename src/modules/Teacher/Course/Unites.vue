@@ -3,29 +3,29 @@
         <div class="card overflow-hidden border-0">
             <div class="card__header">
                 <custom-navigation />
-                <b-row class="justify-content-end">
-                    <b-button variant="primary" size="sm" @click="addHomework">添加作业</b-button>
+                <b-row class="justify-content-end m-0">
+                    <b-button variant="primary" size="sm">添加单元</b-button>
                 </b-row>
             </div>
             <div class="card__body">
                 <b-table-simple caption-top responsive :no-border-collapse="true">
                     <b-thead head-variant="light">
                         <b-tr>
-                            <b-th>作业 </b-th>
+                            <b-th>单元名称</b-th>
                             <b-th>操作</b-th>
                         </b-tr>
                     </b-thead>
                     <b-tbody>
                         <b-tr>
-                            <b-th width="10%" @click="toHomeworkInfo">homework name</b-th>
+                            <b-th width="10%">Unit 1</b-th>
                             <b-th width="10%">
-                                <b-button variant="link" size="sm" class="pt-0 pb-0" @click="deleteHomework">删除</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>
                             </b-th>
                         </b-tr>
                         <b-tr>
-                            <b-th width="10%">some name 1</b-th>
+                            <b-th width="10%">Unit 2</b-th>
                             <b-th width="10%">
-                                <b-button variant="link" size="sm" class="pt-0 pb-0">删除</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>
                             </b-th>
                         </b-tr>
                     </b-tbody>
@@ -43,14 +43,14 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
-    import CustomNavigation from '../../../components/common/CustomNavigation';
     import Pagination from '../../../components/common/Pagination';
+    import CustomNavigation from '../../../components/common/CustomNavigation';
 
     export default {
         name: 'CoursesComponent',
         components: {
+            Pagination,
             CustomNavigation,
-            Pagination
         },
         data: () => ({
             selectedTabId: 0,
@@ -65,20 +65,8 @@
         methods: {
             ...mapActions({
             }),
-            selectTab(index){
-                this.selectedTabID = index;
-                // this.currentPage = 0;
-                // this.fliterPageData();
-            },
             changePage(v) {
                 this.currentPage = v;
-            },
-            toHomeworkInfo() {
-                this.$router.push({path: 'homework/homework_id'});
-            },
-            addHomework() {
-            },
-            deleteHomework() {
             },
         },
     };

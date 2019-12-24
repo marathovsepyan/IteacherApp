@@ -7,9 +7,8 @@
             <b-container fluid class="content">
                 <router-view />
             </b-container>
+            <Footer v-if="!isTeacher"/>
         </div>
-
-        <Footer v-if="!isTeacher"/>
     </div>
 </template>
 

@@ -45,8 +45,8 @@ const actions = {
         commit(type.LOGOUT);
     },
 
-    [type.SIGN_IN]: async ({commit}, {phone, password}) => {
-        let data = await login({phone, password: md5(password)});
+    [type.SIGN_IN]: async ({commit}, {phone, password, role}) => {
+        let data = await login(role, {phone, password: md5(password)});
 
         if (data) {
             const { token, role } = data.userInfo;

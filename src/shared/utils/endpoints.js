@@ -1,4 +1,4 @@
-import {_get, _post, _delete, } from './http';
+import {_get, _post, _delete } from './http';
 
 
 /*-------------- Authentication ---------------*/
@@ -12,6 +12,10 @@ export const logout = (data) => _post('logout', data);
 export const getCourses = () => _get('api/teachers/courses');
 export const postCourse = (data) => _post('', data);
 export const deleteCourse = (data) => _delete('', data);
+
+/*-------------- Unites ---------------*/
+
+export const getUnites = (course_id) => _get(`/api/teachers/units/${course_id}`);
 
 /*-------------- Homeworks ---------------*/
 

@@ -58,12 +58,18 @@
         }),
         computed: {
             ...mapGetters({
+                viewUnits: 'getUnites',
             }),
+            courseId() {
+                return this.$router.params.id;
+            }
         },
         async created() {
+            this.viewUnits(this.courseId);
         },
         methods: {
             ...mapActions({
+                units: 'getUnits'
             }),
             changePage(v) {
                 this.currentPage = v;

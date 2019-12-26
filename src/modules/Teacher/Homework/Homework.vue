@@ -153,9 +153,9 @@
 
 <script>
 import CustomSelect from '../../../components/common/CustomSelect.vue';
-import ImgWrrapperGold from '../../../../public/svg/img_wrrapper_1.svg';
-import ImgWrrapperSilver from '../../../../public/svg/img_wrrapper_2.svg';
-import ImgWrrapperBronze from '../../../../public/svg/img_wrrapper_3.svg';
+import ImgWrrapperGold from '../../../../public/svg/img_wrraper_1.svg';
+import ImgWrrapperSilver from '../../../../public/svg/img_wrraper_2.svg';
+import ImgWrrapperBronze from '../../../../public/svg/img_wrraper_3.svg';
 
     export default {
         components: {

@@ -91,7 +91,7 @@
                     background-color: #5C99E1;
                 }
             }
-            .router-link-exact-active {
+            .is-active {
                 background-color: #5C99E1;
                 color: #fff;
             }

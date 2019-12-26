@@ -19,7 +19,7 @@
                         <b-tr v-for="(item, index) in tmpData"
                             :key="index + 'tbody'">
                             <b-th width="10%" @click="() => toUnites(item)" class="cursor-pointer">{{ item.name }}</b-th>
-                            <b-th width="10%">{{ item.createdAt }}</b-th>
+                            <b-th width="10%">{{ item.classes[0] &&  item.classes[0].name}}</b-th>
                             <b-th width="10%">
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">发布</b-button>
                                 <b-button variant="link" size="sm" class="pt-0 pb-0 text-warning">编辑</b-button>
@@ -37,16 +37,13 @@
                 :offset="2"
                 @changePage="changePage" />
         </div>
-
-<!--        <modal name="hello-world">-->
-<!--            hello, world!-->
-<!--        </modal>-->
     </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import Pagination from '../../../components/common/Pagination';
+// import AddCourseModal from './AddCourseModal';
 
 export default {
     name: 'CoursesComponent',
@@ -64,7 +61,7 @@ export default {
         tmpData() {
             let offset = (this.currentPage) * 2;
             return this.courses.slice(offset, offset + 2);
-        }
+        },
     },
     async created() {
         await this.viewCourses();

@@ -34,9 +34,17 @@
                             <div class="audio__body">
                                 <div class="audio-panel mt-5 ml-4 mr-4 mb-3">
                                     <div class="audio-panel__header d-flex justify-content-between">
-                                        <b-form-file v-model="file2" v-if="!file2" class="opacity-0 position-absolute" plain></b-form-file>
-                                        <b-button v-if="!file2" variant="sm" class="d-flex align-items-center text-muted p-0"><PlayButton class="mr-1"/>添加音频</b-button>
-                                        <div v-else class="d-flex align-items-center btn btn-sm text-primary p-0"><PlayButtonPrimary class="mr-1"/> {{ file2 ? file2.name : '' }} <CloseButton class="ml-1"/></div>
+                                        <b-form-file
+                                                v-model="file2"
+                                                v-if="!file2"
+                                                class="opacity-0 position-absolute" plain />
+                                        <b-button
+                                                v-if="!file2"
+                                                variant="sm"
+                                                class="d-flex align-items-center text-muted p-0"><PlayButton class="mr-1"/>添加音频</b-button>
+                                        <div v-else
+                                             class="d-flex align-items-center btn btn-sm text-primary p-0">
+                                            <PlayButtonPrimary class="mr-1"/> {{ file2 ? file2.name : '' }} <CloseButton class="ml-1"/></div>
                                         <b-button variant="sm" class="text-muted p-0">添加句子</b-button>
                                     </div>
                                     <div class="audio-panel__body">
@@ -45,8 +53,7 @@
                                             class="rounded-0 border-0 text-xs"
                                             v-model="text"
                                             placeholder="Enter something..."
-                                            rows="3"
-                                        ></b-form-textarea>
+                                            rows="3" />
                                     </div>
                                 </div>
                                 <dvi class="audio-row row align-items-center m-0">

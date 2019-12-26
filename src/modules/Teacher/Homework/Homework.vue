@@ -167,7 +167,6 @@ import ImgWrrapperBronze from '../../../../public/svg/img_wrraper_3.svg';
         data: () => ({
         }),
         created() {
-            this.updateGraphData();
         },
         methods: {
         },

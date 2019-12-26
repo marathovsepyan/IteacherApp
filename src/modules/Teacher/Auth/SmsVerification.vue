@@ -15,12 +15,30 @@
                         </div>
                         <div class="l-wrap__body">
                             <b-form-group
+                                    id=""
+                                    :invalid-feedback="invalidFeedback"
+                                    :valid-feedback="validFeedback"
+                                    :state="state"
+                            >
+                                <b-form-input
+                                        id=""
+                                        v-model="name"
+                                        :state="state"
+                                        placeholder="请输入姓名"
+                                        class="form-outline rounded-0" />
+                            </b-form-group>
+                            <b-form-group
                             id=""
                             :invalid-feedback="invalidFeedback"
                             :valid-feedback="validFeedback"
                             :state="state"
                             >
-                                <b-form-input id="" v-model="name" :state="state" placeholder="请输入手机号" class="form-outline rounded-0"></b-form-input>
+                                <b-form-input
+                                        id=""
+                                        v-model="name"
+                                        :state="state"
+                                        placeholder="请输入手机号"
+                                        class="form-outline rounded-0" />
                             </b-form-group>
                             <b-form-group
                             id=""
@@ -28,7 +46,12 @@
                             :valid-feedback="validFeedback"
                             :state="state">
                                 <b-input-group>
-                                    <b-form-input id="" v-model="name" :state="state" placeholder="请输入验证码" class="form-outline rounded-0"></b-form-input>
+                                    <b-form-input
+                                            id=""
+                                            v-model="name"
+                                            :state="state"
+                                            placeholder="请输入验证码"
+                                            class="form-outline rounded-0" />
                                     <b-input-group-append>
                                         <b-button variant="link text-xs">获取验证码</b-button>
                                     </b-input-group-append>
@@ -45,19 +68,10 @@
                                     type="text"
                                     :state="state"
                                     placeholder="请输入密码，6-8位至少含数字/字母2种组合"
-                                    class="form-outline rounded-0"></b-form-input>
+                                    class="form-outline rounded-0" />
                                     <i class="clear-btn d-block position-absolute">
                                         <closeCycle/>
                                     </i>
-                            </b-form-group>
-
-                            <b-form-group>
-                                <b-form-input
-                                    id="" v-model="name"
-                                    type="password"
-                                    :state="state"
-                                    placeholder=""
-                                    class="form-outline rounded-0"></b-form-input>
                             </b-form-group>
 
                             <b-form-group>

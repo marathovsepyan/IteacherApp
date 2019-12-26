@@ -15,7 +15,7 @@
           </span>
         </template>
         <template slot="option" slot-scope="props">
-          <OptionCheck/>
+          <OptionCheck v-if="value === props.option"/>
           <div class="option__desc">
             <span class="option__title">{{ props.option }}</span>
             <span class="option__small">{{ props.option.desc }}</span>
@@ -35,7 +35,7 @@ export default {
     props: {
       placeholder: { type: String, },
       options: { type: Array, },
-      value: { type: String, },
+      value: { type: String, default: '二年级'},
       isMulriselect: {
         type: Boolean,
         default: false
@@ -47,13 +47,13 @@ export default {
     },
     data () {
       return {
-        testOptions: ['list', 'of', 'options'],
+        testOptions: ['一年级', '二年级', '三年级', '四年级', '五年级'],
       };
     },
     methods: {
-      // customLabel ({ title, desc }) {
-      //   return `${title} – ${desc}`
-      // }
+      customLabel ({ title, desc }) {
+        return `${title} – ${desc}`;
+      }
     }
 };
 </script>
@@ -108,7 +108,7 @@ export default {
       &__content-wrapper {
         border-radius: 3px;
         border:1px solid rgba(230,231,235,1);
-        box-shadow:0px 1px 3px rgba(0,0,0,0.12);
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.12);
       }
       &__option {
         display: flex;

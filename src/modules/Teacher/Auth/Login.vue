@@ -47,7 +47,7 @@
                                     <b-form-group>
                                         <b-button type="submit" variant="light btn-block rounded-pill" @click="login">登录</b-button>
                                         <b-form-text class="d-flex justify-content-between">
-                                            <a href="" class="btn btn-link text-xs">注册账号</a>
+                                            <router-link to="register" class="btn btn-link text-xs">注册账号</router-link>
                                             <a href="" class="btn btn-link text-xs">忘记密码</a>
                                         </b-form-text>
                                     </b-form-group>

@@ -23,12 +23,6 @@
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>
                             </b-th>
                         </b-tr>
-<!--                        <b-tr>-->
-<!--                            <b-th width="10%">Unit 2</b-th>-->
-<!--                            <b-th width="10%">-->
-<!--                                <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>-->
-<!--                            </b-th>-->
-<!--                        </b-tr>-->
                     </b-tbody>
                 </b-table-simple>
             </div>

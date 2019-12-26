@@ -3,7 +3,7 @@
         <div class="card overflow-hidden border-0">
             <div class="card__header">
                 <b-row class="justify-content-end m-0">
-                    <b-button variant="primary" size="sm">添加课程</b-button>
+                    <b-button variant="primary" size="sm" @click="show">添加课程</b-button>
                 </b-row>
             </div>
             <div class="card__body">
@@ -18,7 +18,7 @@
                     <b-tbody>
                         <b-tr v-for="(item, index) in tmpData"
                             :key="index + 'tbody'">
-                            <b-th width="10%" @click="() => toUnites(item)">{{ item.name }}</b-th>
+                            <b-th width="10%" @click="() => toUnites(item)" class="cursor-pointer">{{ item.name }}</b-th>
                             <b-th width="10%">{{ item.createdAt }}</b-th>
                             <b-th width="10%">
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">发布</b-button>
@@ -37,6 +37,10 @@
                 :offset="2"
                 @changePage="changePage" />
         </div>
+
+<!--        <modal name="hello-world">-->
+<!--            hello, world!-->
+<!--        </modal>-->
     </div>
 </template>
 
@@ -80,6 +84,23 @@ export default {
         toUnites(course) {
             this.$router.push({name: 'teacher-course-unites', params: { id: course.id }});
         },
+        show () {
+            this.$modal.show({
+                template: `<div><p>{{ text }}</p></div>`,
+                props: ['text']
+            }, {
+                text: 'This text is passed as a property'
+            }, {
+                height: 'auto'
+            }, {
+                draggable: true
+            }, {
+                'before-close': () => { console.log('this will be called before the modal closes'); }
+            });
+        },
+        hide () {
+            this.$modal.hide('hello-world');
+        }
     },
 };
 </script>

@@ -54,7 +54,7 @@
                                     <div class="leaderboard__user d-flex align-items-center">
                                         <span class="text-yellow">1</span>
                                         <div class="user-photo">
-                                            <ImgWrrapperGold/>
+                                            <ImgWrraperGold/>
                                         </div>
                                     </div>
                                     <div class="leaderboard__info text-left">
@@ -70,7 +70,7 @@
                                     <div class="leaderboard__user d-flex align-items-center">
                                         <span class="text-muted">2</span>
                                         <div class="user-photo">
-                                            <ImgWrrapperSilver />
+                                            <ImgWrraperSilver />
                                         </div>
                                     </div>
                                     <div class="leaderboard__info text-left">
@@ -86,7 +86,7 @@
                                     <div class="leaderboard__user d-flex align-items-center">
                                         <span class="text-warning">3</span>
                                         <div class="user-photo">
-                                            <ImgWrrapperBronze/>
+                                            <ImgWrraperBronze/>
                                         </div>
                                     </div>
                                     <div class="leaderboard__info text-left">
@@ -120,7 +120,7 @@
                                     <div class="leaderboard__user d-flex align-items-center">
                                         <span class="text-yellow">1</span>
                                         <div class="user-photo">
-                                            <ImgWrrapperGold/>
+                                            <ImgWrraperGold/>
                                         </div>
                                     </div>
                                     <div class="leaderboard__info text-left">
@@ -145,18 +145,18 @@
 import CustomSelect from '../../components/common/CustomSelect.vue';
 import ToggleButton from '../../components/common/ToggleButton.vue';
 import AdminChart from '../../components/common/AdminChart.vue';
-import ImgWrrapperGold from '../../../public/svg/img_wrrapper_1.svg';
-import ImgWrrapperSilver from '../../../public/svg/img_wrrapper_2.svg';
-import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
+import ImgWrraperGold from '../../../public/svg/img_wrraper_1.svg';
+import ImgWrraperSilver from '../../../public/svg/img_wrraper_2.svg';
+import ImgWrraperBronze from '../../../public/svg/img_wrraper_3.svg';
 
     export default {
         components: {
             CustomSelect,
             ToggleButton,
             AdminChart,
-            ImgWrrapperGold,
-            ImgWrrapperSilver,
-            ImgWrrapperBronze,
+            ImgWrraperGold,
+            ImgWrraperSilver,
+            ImgWrraperBronze,
         },
         data: () => ({
             dateType: null,

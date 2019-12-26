@@ -8,6 +8,10 @@ import router from './route/router';
 import App from './App.vue';
 import Header from './components/layouts/Header.vue';
 
+import VModal from 'vue-js-modal';
+Vue.use(VModal, { dynamic: true, injectModalsContainer: true });
+
+
 import vRegion from 'v-region';
 Vue.use(vRegion);
 

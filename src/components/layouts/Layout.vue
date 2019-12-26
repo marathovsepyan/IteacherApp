@@ -44,55 +44,6 @@
 
 <style lang="scss">
 .wrapper {
-    .sidebar {
-        width: 200px!important;
-        min-height: 100vh;
-        padding: 10px;
-        list-style: none;
-        //background-color: $sidebar;
-        background-color: #2E323F;
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        &__brand {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            span {
-                font-size:24px;
-                font-weight:600;
-            }
-        }
-        .sidebar-item {
-            &__link {
-                display: flex;
-                align-items: center;
-                font-size: 14px;
-                font-weight: 400;
-                padding: 11px;
-                color: #fff;
-                border-radius: 0.25rem;
-                &:hover,
-                &:focus {
-                    color: #fff;
-                    text-decoration: none;
-                }
-                .sidebar-link-icon {
-                    display: block;
-                    width: 16px;
-                    height: 16px;
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                &.active {
-                    background-color: #5C99E1;
-                }
-            }
-        }
-    }
     .content-wrapper {
         width: 100%;
         min-height: 100vh;

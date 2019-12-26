@@ -12,11 +12,11 @@
           <template v-slot:next-text>Next <ArrowRight/></template>
         </b-pagination>
     <div class="go-page d-flex align-items-center">
-      <span class="go-page__status">{{ page }}/{{ total }}</span>
-      <span class="text-muted">Go to</span>
+      <span class="text-xs go-page__status">{{ page }}/{{ total }}</span>
+      <span class="text-xs text-muted">Go to</span>
       <input class="go-page__input" v-model="goToPage" type="text" placeholder="">
-      <span class="text-muted">Page</span>
-      <button class="go-page__button" name="view" @click="handlePageChange">View</button>
+      <span class="text-xs text-muted">Page</span>
+      <button class="go-page__button btn-sm" name="view" @click="handlePageChange">View</button>
     </div>
   </b-row>
 </template>
@@ -88,7 +88,7 @@ export default {
 
 <style lang="scss">
 .content-pagination {
-  padding: 50px 0;
+  padding: 40px 0;
   ul.pagination {
     li.page-item {
       .page-link {

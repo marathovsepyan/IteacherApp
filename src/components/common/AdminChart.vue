@@ -84,8 +84,8 @@
                 _ctx.textAlign = "center";
                 _ctx.font = "14px Microsoft YaHei";
 
-                for (var k = 0; k < this.labels.length; k++){
-                    _ctx.fillText(this.labels[k], _xMargin + k * _xStep, _h_ + 20);
+                for (let i = 0; i < this.labels.length; i++){
+                    _ctx.fillText(this.labels[i], _xMargin + i * _xStep, _h_ + 20);
                 }
 
                 _ctx.strokeStyle = '#9B9B9B40';

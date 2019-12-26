@@ -2,11 +2,12 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <custom-navigation />
-                <b-row class="justify-content-center">
-                    <tab-component :active="selectedTabId"
-                                   @click="selectTab"/>
-                    <b-button variant="primary" size="sm">添加作业</b-button>
+                <b-row class="justify-content-between m-0">
+                        <custom-navigation :routes="routes"/>
+                        <tab-component :active="selectedTabId"
+                                    @click="selectTab"
+                                    class="no-wrap no-border"/>
+                        <b-button variant="primary" size="sm">添加作业</b-button>
                 </b-row>
             </div>
             <div class="card__body">
@@ -61,6 +62,7 @@
         data: () => ({
             selectedTabId: 0,
             currentPage: 1,
+            routes: [{name: '班级'}, {name: '学习课程情况'}],
         }),
         computed: {
             ...mapGetters({

@@ -2,11 +2,11 @@
     <div class="w-100 min-vh-100 overflow-hidden d-flex align-items-center">
         <b-container fluid>
             <b-row>
-                <b-col md="6" lg="6" class="d-flex align-items-center">
+                <b-col md="6" lg="7" class="d-flex align-items-center">
                     <div class="img-mirror">
                         <img src="/img/banners/auth_teacher_bg.png" alt="" class="img-fluid">
                     </div>                </b-col>
-                <b-col md="6" lg="5" offset-lg="1">
+                <b-col md="6" lg="5">
                     <div class="l-wrap">
                         <div class="l-wrap__header d-flex align-items-center">
                             <img src="/img/icons/logo.png" alt="logo" width="80" height="80">

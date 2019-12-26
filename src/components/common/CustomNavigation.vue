@@ -1,6 +1,6 @@
 <template>
     <div class="card__nav">
-        <ul class="d-flex list-unstyled m-0">
+        <ul class="d-flex align-items-center list-unstyled m-0">
             <li v-for="(route, index) in routes"
                 :key="index + 'route'">
                 <router-link to="">{{ route.name }}</router-link>
@@ -30,19 +30,16 @@ export default {
 </script>
 
 <style lang="scss">
-.card__nav {
-    font-size: 10px;
-    font-weight: 400;
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    ul {
-        li {
-            a {
-                color: #333;
-                padding: 0 5px;
+    .card__nav {
+        font-size: 10px;
+        font-weight: 400;
+        ul {
+            li {
+                a {
+                    color: #666;
+                    padding: 0 5px;
+                }
             }
         }
     }
-}
 </style>

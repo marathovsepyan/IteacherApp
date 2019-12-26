@@ -257,7 +257,7 @@
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     $margin: 3px;
 
     .vue-js-switch {
@@ -306,14 +306,14 @@
                 display: block;
                 position: absolute;
                 overflow: hidden;
-
                 top: 0;
                 left: 0;
-
                 transform: translate3d($margin, $margin, 0);
                 border-radius: 100%;
                 background-color: #fff;
                 z-index: 2;
+                border:1px solid #e5e5e5;
+                box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
             }
         }
 

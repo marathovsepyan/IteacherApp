@@ -18,7 +18,7 @@
         </div>
         <b-row>
             <b-col md="7">
-                <div class="card chart-container">
+                <div class="card chart-container rounded-0">
                     <div class="card__header d-flex">
                         <div data-v-640ef3a2="" class="chart-header mr-auto">
                             <span @click="changeAnalType(0)" class="cursor-pointer fn-16">分</span>
@@ -164,6 +164,9 @@ import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
             graphLabels: [],
             graphDatas: [],
         }),
+        created() {
+            this.updateGraphData();
+        },
         methods: {
             changeDateRange(e){
                 if (e.value) this.dateType = 'week';
@@ -197,7 +200,7 @@ import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
         outline: none;
     }
     .chart-container {
-        padding: 17px;
+        padding: 20px 15px;
         .separator {
             border-left: 2px solid rgb(227, 215, 215);
             margin: 3px 13px 3px 12px;
@@ -250,7 +253,6 @@ import ImgWrrapperBronze from '../../../public/svg/img_wrrapper_3.svg';
                 font-weight: 500;
                 margin-right: 10px;
             }
-            .user-photo {}
         }
         &__info {
             padding: 4px 14px 0;

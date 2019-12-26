@@ -1,11 +1,11 @@
-@import './custom.scss';
 @import './variable.scss';
 
 .l-wrap {
+    max-width: 500px;
     &__header {
         h2 {
             font-weight: 500;
-            margin: 0 0 0 22px;
+            margin: 0 0 0 20px;
         }
     }
     &__body {
@@ -59,6 +59,7 @@
 
 .card-wrapper {
     height: 100%;
+    margin-bottom: 30px;
     .card {
         flex: 1 1 auto;
         &__header {
@@ -107,3 +108,5 @@
         font-size: 12px;
     }
 }
+
+@import './custom.scss';

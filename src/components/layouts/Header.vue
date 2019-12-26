@@ -88,6 +88,10 @@ export default {
                     height: 26px;
                     margin-right: 8px;
                 }
+                &:hover,
+                &:focus {
+                    color: #0069d9;
+                }
             }
             &:last-child {
                 .nav-link {

@@ -14,7 +14,10 @@ const ResultDetails = () => import('./Homework/ResultDetails');
 const HomeworkDetails = () => import('./Homework/HomeworkDetails');
 const Courses = () => import('./Course/Courses');
 const CourseUnites = () => import('./Course/Unites');
+const EditSentence = () => import('./Course/EditSentence');
 const Dashboard = () => import('./Dashboard');
+const Settings = () => import('./Settings/Settings');
+const EditSettings = () => import('./Settings/EditSettings');
 
 const routes = {
     path: '/teacher',
@@ -68,6 +71,11 @@ const routes = {
             component: CourseUnites,
           },
           {
+            path: 'course/edit/sentence',
+            name: 'teacher-course-edit-sentence',
+            component: EditSentence,
+          },
+          {
             path: 'homework',
             name: 'teacher-homework',
             component: Homework,
@@ -108,6 +116,16 @@ const routes = {
             name: 'teacher-homework-result-info',
             component: ResultDetails,
           },
+          {
+            path: 'settings',
+            name: 'settings',
+            component: Settings,
+          },
+          {
+            path: 'settings/edit',
+            name: '',
+            component: EditSettings,
+          }
         ]
       },
     ],

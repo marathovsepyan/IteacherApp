@@ -9,11 +9,14 @@ const Homework = () => import('./Homework/Homework');
 const HomeworkInfo = () => import('./Homework/HomeworkInfo');
 const Homeworks = () => import('./Homework/Homeworks');
 const HomeworkStatistics = () => import('./Homework/HomeworkStatistics');
+const CreateHomework = () => import('./Homework/CreateHomework');
 const HomeworkResults = () => import('./Homework/HomeworkResults');
+const StudentResultInHomework = () => import('./Homework/StudentResultInHomework');
 const ResultDetails = () => import('./Homework/ResultDetails');
 const HomeworkDetails = () => import('./Homework/HomeworkDetails');
 const Courses = () => import('./Course/Courses');
 const CourseUnites = () => import('./Course/Unites');
+const Lessons = () => import('./Course/Lessons');
 const EditSentence = () => import('./Course/EditSentence');
 const Dashboard = () => import('./Dashboard');
 const Settings = () => import('./Settings/Settings');
@@ -71,6 +74,11 @@ const routes = {
             component: CourseUnites,
           },
           {
+            path: 'course/:id/unit/:unit_id/lessons',
+            name: 'teacher-course-unite-lessons',
+            component: Lessons,
+          },
+          {
             path: 'course/edit/sentence',
             name: 'teacher-course-edit-sentence',
             component: EditSentence,
@@ -102,9 +110,19 @@ const routes = {
             component: HomeworkStatistics,
           },
           {
+            path: 'homework/add',
+            name: 'teacher-homework-add',
+            component: CreateHomework,
+          },
+          {
             path: 'homework/:id/result',
             name: 'teacher-homework-result',
             component: HomeworkResults,
+          },
+          {
+            path: 'homework/:id/student/:student_id/result',
+            name: 'teacher-homework-student-result',
+            component: StudentResultInHomework,
           },
           {
             path: 'homework/:id/:sentence_id/details',

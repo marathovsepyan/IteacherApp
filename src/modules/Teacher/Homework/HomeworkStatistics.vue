@@ -2,9 +2,10 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <custom-navigation />
+                <custom-navigation :routes="routes"/>
                 <b-row class="justify-content-center">
                     <tab-component :active="selectedTabId"
+                                   class="no-wrap"
                         @click="selectTab"/>
                 </b-row>
             </div>
@@ -229,6 +230,14 @@ export default {
     data: () => ({
         selectedTabId: 0,
     }),
+    computed: {
+      routes () {
+          return ([
+              {name: '班级', link: ''},
+              {name: '学习课程情况', link: ''},
+          ]);
+      }
+    },
     methods: {
         selectTab(index){
             this.selectedTabID = index;

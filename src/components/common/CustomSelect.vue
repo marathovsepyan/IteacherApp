@@ -11,13 +11,13 @@
         <template slot="singleLabel" slot-scope="props">
           <!-- <OptionCheck/> -->
           <span class="option__desc">
-            <span class="option__title">{{ props.option }}</span>
+            <span class="option__title selected_item">{{ props.option }} <CloseSvg /></span>
           </span>
         </template>
         <template slot="option" slot-scope="props">
           <OptionCheck v-if="value === props.option"/>
           <div class="option__desc">
-            <span class="option__title">{{ props.option }}</span>
+            <span class="option__title">{{ props.option }} </span>
             <span class="option__small">{{ props.option.desc }}</span>
           </div>
         </template>
@@ -29,6 +29,7 @@
 <script>
 import Multiselect from 'vue-multiselect';
 import OptionCheck from '../../../public/svg/select.svg';
+import CloseSvg from '../../../public/svg/close.svg';
 
 export default {
     name: 'CustomSelect',
@@ -44,6 +45,7 @@ export default {
     components: {
       Multiselect,
       OptionCheck,
+        CloseSvg,
     },
     data () {
       return {
@@ -120,6 +122,12 @@ export default {
         }
         .option__desc {
           margin-left: 6px;
+            .selected_item {
+                height:20px;
+                border:1px solid rgba(235,236,240,1);
+                opacity:1;
+                border-radius:3px;
+            }
         }
       }
     }

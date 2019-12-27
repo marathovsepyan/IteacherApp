@@ -2,28 +2,25 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <custom-navigation :routes="routes"/>
-                <b-row class="justify-content-end">
-                    <b-button variant="primary" size="sm" @click="addHomework">添加作业</b-button>
+                <b-row class="justify-content-between m-0">
+                    <custom-navigation :routes="routes"/>
+                    <custom-search class="search"/>
+                    <b-button variant="primary" size="sm">添加作业</b-button>
                 </b-row>
             </div>
             <div class="card__body">
                 <b-table-simple caption-top responsive :no-border-collapse="true">
                     <b-thead head-variant="light">
                         <b-tr>
-                            <b-th @click="navigateTo">作业 </b-th>
-                            <b-th>操作</b-th>
+                            <b-th>单元名称</b-th>
+                            <b-th> 操作</b-th>
                         </b-tr>
                     </b-thead>
                     <b-tbody>
                         <b-tr>
-                            <b-th width="10%" @click="navigateTo">homework name</b-th>
-                            <b-th width="10%">
-                                <b-button variant="link" size="sm" class="pt-0 pb-0" @click="deleteHomework">删除</b-button>
-                            </b-th>
-                        </b-tr>
-                        <b-tr>
-                            <b-th width="10%" @click="navigateTo">some name 1</b-th>
+                            <b-th width="10%"
+                                  @click="() => toUnites()"
+                                  class="cursor-pointer">2014 New Fashion Novelty Tank Slim Women's Fashion Dresses With Lace </b-th>
                             <b-th width="10%">
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">删除</b-button>
                             </b-th>
@@ -35,7 +32,8 @@
         <div class="content-pagination">
             <pagination
                     :currentPage="currentPage"
-                    :totalPages="12"
+                    :totalPages="0"
+                    :offset="2"
                     @changePage="changePage" />
         </div>
     </div>
@@ -43,26 +41,34 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
-    import CustomNavigation from '../../../components/common/CustomNavigation';
     import Pagination from '../../../components/common/Pagination';
+    import CustomNavigation from '../../../components/common/CustomNavigation';
+    import CustomSearch from '../../../components/common/CustomSearch';
+    // import AddCourseModal from './AddCourseModal';
 
     export default {
         name: 'CoursesComponent',
         components: {
+            Pagination,
             CustomNavigation,
-            Pagination
+            CustomSearch,
         },
         data: () => ({
             selectedTabId: 0,
-            currentPage: 1,
+            currentPage: 0,
         }),
         computed: {
             ...mapGetters({
             }),
+            // tmpData() {
+            //     let offset = (this.currentPage) * 2;
+            //     return this.courses.slice(offset, offset + 2);
+            // },
             routes() {
                 return ([
-                    {name: '课程', link: ''},
-                    {name: '作业一', link: ''}
+                    {name: '全部课程', link: ''},
+                    {name: '一年级上册', link: ''},
+                    {name: '第一节课', link: ''},
                 ]);
             }
         },
@@ -79,14 +85,14 @@
             changePage(v) {
                 this.currentPage = v;
             },
-            addHomework() {
-                this.$router.push({name: 'teacher-homework-add'});
+            toUnites() {
+                // this.$router.push({name: 'teacher-course-unites', params: { id: course.id }});
             },
-            deleteHomework() {
-            },
-            navigateTo() {
-                this.$router.push({ name: 'teacher-homework-info', params: { id: 5 }});
-            }
         },
     };
 </script>
+<style lang="scss">
+    .search {
+        width: 380px;
+    }
+</style>

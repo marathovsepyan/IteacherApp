@@ -6,8 +6,6 @@
             class="flex-fill d-flex">
             <div class="tabs-link"
                 :class="{
-                    'tabs-link': !type,
-                    'tabs-link-outline':  type === 'outline',
                     'active' : active == index
                 }"
             >{{tab}}</div>
@@ -22,7 +20,6 @@ export default {
     props: {
         tabs: { type: Array },
         active: { type: Number },
-        type: { type: String },
     },
     data: () => ({
         defaultTabs: [ '单词', '句子', '段落', '文章', ]

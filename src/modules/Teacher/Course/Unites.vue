@@ -16,9 +16,15 @@
                         </b-tr>
                     </b-thead>
                     <b-tbody>
+                        <b-tr>
+                            <b-th width="10%" @click="toLessons" class="cursor-pointer">unit name</b-th>
+                            <b-th width="10%">
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>
+                            </b-th>
+                        </b-tr>
                         <b-tr v-for="(unit, index) in units"
                             :key="index + unit.id">
-                            <b-th width="10%">{{ unit.name }}</b-th>
+                            <b-th width="10%" class="cursor-pointer">{{ unit.name }}</b-th>
                             <b-th width="10%">
                                 <b-button variant="link" size="sm" class="pt-0 pb-0">操作</b-button>
                             </b-th>
@@ -65,7 +71,7 @@
             routes(){
                 return ([
                     { name: '全部课程', link: '' },
-                    { name: 'course name' },
+                    { name: 'course name', link: ''},
                 ]);
             }
         },
@@ -79,6 +85,9 @@
             changePage(v) {
                 this.currentPage = v;
             },
+            toLessons() {
+                this.$router.push({name: 'teacher-course-unite-lessons', params: {id: this.courseId, unit_id: 20}});
+            }
         },
     };
 </script>

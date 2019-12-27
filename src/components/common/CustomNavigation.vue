@@ -3,7 +3,7 @@
         <ul class="d-flex align-items-center list-unstyled m-0">
             <li v-for="(route, index) in routes"
                 :key="index + 'route'">
-                <router-link :to="route.link">{{ route.name }}</router-link>
+                <router-link to="">{{ route.name }}</router-link>
                 <ArrowRight v-if="routes.length - 1 !== index" class="icon"/>
             </li>
 <!--            <li><ArrowRight/></li>-->
@@ -35,6 +35,8 @@ export default {
         font-weight: 400;
         ul {
             li {
+                display: flex;
+                align-items: center;
                 a {
                     color: #333333;
                     padding: 0 5px;

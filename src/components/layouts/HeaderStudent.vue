@@ -75,16 +75,16 @@
                         display: block;
                         font-size: 10px;
                         font-weight: 400;
-                        width: 12px;
-                        height: 12px;
-                        line-height: 12px;
+                        width: 13px;
+                        height: 13px;
+                        line-height: 13px;
                         text-align: center;
                         background-color:#ff4646;
                         color: #fff;
                         border-radius: 9px;
                         position: absolute;
-                        right: 16px;
-                        top: 8px;
+                        right: 15px;
+                        top: 1px;
                     }
                 }
                 &:last-child {
@@ -111,7 +111,7 @@
                     .form-control {
                         font-size: 12px;
                         height: 26px;
-                        padding: 4px 8px 4px 28px;
+                        padding: 4px 8px 4px 30px;
                         border-radius: 10rem;
                         border: 1px solid #333;
                     }

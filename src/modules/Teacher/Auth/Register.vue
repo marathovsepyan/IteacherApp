@@ -24,17 +24,17 @@
                             </b-form-group>
 
                             <b-form-group>
-                                <v-region @values="regionChange" type="column" class="form-control"></v-region>
-                                <v-selectmenu :data="groupData"
-                                                :embed="true"
-                                                :multiple="true"
-                                                :width="250"
-                                                key-field="id"
-                                                v-model="value2" >
-                                    <template #row="{ row }">
-                                        {{row.name}} {{row.desc}}
-                                    </template>
-                                </v-selectmenu>
+<!--                                <v-region @values="regionChange" type="column" class="form-control"></v-region>-->
+<!--                                <v-selectmenu :data="groupData"-->
+<!--                                                :embed="true"-->
+<!--                                                :multiple="true"-->
+<!--                                                :width="250"-->
+<!--                                                key-field="id"-->
+<!--                                                v-model="value2" >-->
+<!--                                    <template #row="{ row }">-->
+<!--                                        {{row.name}} {{row.desc}}-->
+<!--                                    </template>-->
+<!--                                </v-selectmenu>-->
                             </b-form-group>
 
                             <b-form-group

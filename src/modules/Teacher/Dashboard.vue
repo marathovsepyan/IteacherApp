@@ -3,16 +3,24 @@
         <div class="card p-4 mb-3">
             <b-row>
                 <b-col md="3">
-                    <custom-select class="multiselect-sm"/>
+                    <custom-select
+                            class="multiselect-sm"
+                            placeholder="选择年级"/>
                 </b-col>
                 <b-col md="3">
-                    <custom-select class="multiselect-sm"/>
+                    <custom-select
+                            class="multiselect-sm"
+                            placeholder="选择班级"/>
                 </b-col>
                 <b-col md="3">
-                    <custom-select class="multiselect-sm"/>
+                    <custom-select
+                            class="multiselect-sm"
+                            placeholder="选择课程"/>
                 </b-col>
                 <b-col md="3">
-                    <custom-select class="multiselect-sm"/>
+                    <custom-select
+                            class="multiselect-sm"
+                            placeholder="选择单元"/>
                 </b-col>
             </b-row>
         </div>
@@ -21,9 +29,9 @@
                 <div class="card chart-container rounded-0">
                     <div class="card__header d-flex">
                         <div data-v-640ef3a2="" class="chart-header mr-auto">
-                            <span @click="changeAnalType(0)" class="cursor-pointer fn-16">分</span>
+                            <span @click="changeAnalType(0)" :class="{active: analType === 0}">分</span>
                             <span class="separator" />
-                            <span @click="changeAnalType(1)" class="cursor-pointer fn-16">准确率</span>
+                            <span @click="changeAnalType(1)" :class="{active: analType === 1}">准确率</span>
                         </div>
                         <toggle-button
                             :value="true"
@@ -204,6 +212,17 @@ import ImgWrraperBronze from '../../../public/svg/img_wrraper_3.svg';
         .separator {
             border-left: 2px solid rgb(227, 215, 215);
             margin: 3px 13px 3px 12px;
+        }
+        .chart-header {
+            span {
+                cursor: pointer;
+                color: #999999;
+                font-size: 16px;
+                line-height: 22px;
+                &.active {
+                    color: #5C99E1;
+                }
+            }
         }
     }
     .leaderboard {

@@ -50,10 +50,6 @@
         data: () => ({
             selectedTabId: 0,
             currentPage: 0,
-            routes: [
-                { name: '全部课程' },
-                {name: '一年级上册'},
-            ]
         }),
         computed: {
             ...mapGetters({
@@ -65,6 +61,12 @@
             tmpData() {
                 let offset = (this.currentPage) * 10;
                 return this.courses.slice(offset, offset + 10);
+            },
+            routes(){
+                return ([
+                    { name: '全部课程', link: '' },
+                    { name: 'course name' },
+                ]);
             }
         },
         async mounted() {

@@ -3,8 +3,8 @@
         <ul class="d-flex align-items-center list-unstyled m-0">
             <li v-for="(route, index) in routes"
                 :key="index + 'route'">
-                <router-link to="">{{ route.name }}</router-link>
-                <ArrowRight v-if="routes.length - 1 !== index"/>
+                <router-link :to="route.link">{{ route.name }}</router-link>
+                <ArrowRight v-if="routes.length - 1 !== index" class="icon"/>
             </li>
 <!--            <li><ArrowRight/></li>-->
 <!--            <li><router-link to="">学习课程情况</router-link></li>-->
@@ -36,8 +36,12 @@ export default {
         ul {
             li {
                 a {
-                    color: #666;
+                    color: #333333;
                     padding: 0 5px;
+                }
+                .icon {
+                    height: 8px;
+                    width: 8px;
                 }
             }
         }

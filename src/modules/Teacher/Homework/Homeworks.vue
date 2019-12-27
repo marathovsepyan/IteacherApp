@@ -2,8 +2,8 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <custom-navigation :routes="routes"/>
-                <b-row class="justify-content-end">
+                <b-row class="justify-content-between m-0">
+                    <custom-navigation :routes="routes"/>
                     <b-button variant="primary" size="sm" @click="addHomework">添加作业</b-button>
                 </b-row>
             </div>

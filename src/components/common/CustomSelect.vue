@@ -29,7 +29,7 @@
 <script>
 import Multiselect from 'vue-multiselect';
 import OptionCheck from '../../../public/svg/select.svg';
-import CloseSvg from '../../../public/svg/close.svg';
+import CloseSvg from '../../../public/svg/times-solid.svg';
 
 export default {
     name: 'CustomSelect',
@@ -128,6 +128,22 @@ export default {
                 opacity:1;
                 border-radius:3px;
             }
+        }
+      }
+      &__single {
+        .option__desc {
+          .selected_item {
+            font-size: 12px;
+            border-radius: 2px;
+            padding: 2px 3px;
+            background: #ebecf0;
+            svg {
+              margin-left: 2px;
+              color: #666;
+              width: 12px;
+              height: 12px;
+            }
+          }
         }
       }
     }

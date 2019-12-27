@@ -2,11 +2,11 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header pt-2 pr-2 pb-0 pl-2 border-btm">
-                <b-row>
+                <b-row class="m-0">
                     <b-col cols="6">
                         <custom-navigation :routes="routes"/>
                     </b-col>
-                    <b-col cols="6">
+                    <b-col cols="6" class="text-right">
                         <b-button variant="primary" size="sm" @click="toHomeworkStatistic">作业统计</b-button>
                     </b-col>
                 </b-row>

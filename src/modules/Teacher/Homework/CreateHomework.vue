@@ -2,26 +2,26 @@
     <div class="card-wrapper d-flex flex-column">
         <div class="card overflow-hidden border-0">
             <div class="card__header">
-                <b-row class="justify-content-between m-0">
+                <b-row class="m-0">
                     <custom-navigation :routes="routes"/>
                     <tab-component :active="selectedTabId"
                                    @click="selectTab"
-                                   class="no-wrap"/>
-                    <date-time-picker />
-                    <b-button variant="outline-secondary" size="sm">取消</b-button>
-                    <b-button variant="primary" size="sm">确定</b-button>
+                                   class="no-wrap ml-auto mr-auto"/>
+                    <date-time-picker class="mr-1"/>
+                    <b-button variant="outline-secondary ml-1 mr-1" size="sm">取消</b-button>
+                    <b-button variant="primary ml-1 mr-1" size="sm">确定</b-button>
                 </b-row>
-                <b-row class="justify-content-between m-0">
-                    <b-col md="3">
+                <b-row class="justify-content-between pt-3">
+                    <b-col cols="3">
                         <custom-select class="multiselect-sm"/>
                     </b-col>
-                    <b-col md="3">
+                    <b-col cols="3">
                         <custom-select class="multiselect-sm"/>
                     </b-col>
-                    <b-col md="3">
+                    <b-col cols="3">
                         <custom-select class="multiselect-sm"/>
                     </b-col>
-                    <b-col md="3">
+                    <b-col cols="3">
                         <custom-select class="multiselect-sm"/>
                     </b-col>
                 </b-row>
@@ -47,7 +47,7 @@
                             <b-th width="10%">2014 New Fashion Novelty</b-th>
                             <b-th width="10%">已添加</b-th>
                             <b-th width="10%">
-                                <b-button variant="link warning" size="sm" class="pt-0 pb-0">添加</b-button>
+                                <b-button variant="link" size="sm" class="text-warning pt-0 pb-0">添加</b-button>
                             </b-th>
                         </b-tr>
                     </b-tbody>

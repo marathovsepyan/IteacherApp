@@ -9,8 +9,6 @@
                     <custom-select class="multiselect-sm"/>
                 </b-col>
                 <b-col md="3">
-                </b-col>
-                <b-col md="3">
                     <b-row class="justify-content-end m-0">
                         <b-button variant="primary" size="sm" @click="toHomeworks">布置作业</b-button>
                     </b-row>

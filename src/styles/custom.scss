@@ -51,6 +51,10 @@ a {
     color: $yellow !important;
 }
 
+.text-lg {
+    font-size: 20px !important;
+}
+
 .text-md {
     font-size: 16px !important;
 }
@@ -97,7 +101,7 @@ a {
 }
 
 .btn-md {
-    font-size: 12px;
+    font-size: 14px;
     padding: 0.25rem 0.5rem;
 }
 
@@ -149,6 +153,17 @@ a {
     }
 }
 
+.btn-outline-secondary {
+    color: $gray-900;
+    border-color: $gray-400;
+    &:hover,
+    &:focus {
+        color: $gray-900;
+        background-color: $gray-400;
+        border-color: $gray-400;
+    }
+}
+
 
 //Forms
 input::placeholder {
@@ -177,6 +192,11 @@ input::placeholder {
 }
 
 //Blocks
+.icon-md {
+    width: 13px;
+    height: 13px;
+}
+
 .opacity-0 {
     opacity: 0 !important;
 }

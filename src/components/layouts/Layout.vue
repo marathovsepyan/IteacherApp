@@ -9,9 +9,11 @@
                 </b-container>
             </div>
         </div>
-        <HeaderStudent v-if="!isTeacher"/>
-        <router-view />
-        <Footer v-if="!isTeacher"/>
+        <div v-if="!isTeacher">
+            <HeaderStudent v-if="!isTeacher"/>
+            <router-view />
+            <Footer v-if="!isTeacher"/>
+        </div>
     </div>
 </template>
 

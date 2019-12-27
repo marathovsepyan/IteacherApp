@@ -12,7 +12,7 @@
                 </b-col>
                 <b-col md="3">
                     <b-row class="justify-content-end m-0">
-                        <b-button variant="primary" size="sm">布置作业</b-button>
+                        <b-button variant="primary" size="sm" @click="toHomeworks">布置作业</b-button>
                     </b-row>
                 </b-col>
             </b-row>
@@ -27,27 +27,32 @@
                     </div>
                     <div class="card__body">
                         <b-row class="align-items-center text-sm m-0 p-2 border-btm">
-                            <div class="name mr-auto">2014 New Fashion Novelty Tank Slim Wom</div>
+                            <div class="name mr-auto cursor-pointer"
+                                 @click="toHomeworkResult">2014 New Fashion Novelty Tank Slim Wom</div>
                             <span class="date mr-2">2019/04/03</span>
                             <b-button variant="primary" size="sm">查看排行</b-button>
                         </b-row>
                         <b-row class="align-items-center text-sm m-0 p-2 border-btm">
-                            <div class="name mr-auto">2014 New Fashion Novelty Tank Slim Wom</div>
+                            <div class="name mr-auto cursor-pointer"
+                                 @click="toHomeworkResult">2014 New Fashion Novelty Tank Slim Wom</div>
                             <span class="date mr-2">2019/04/03</span>
                             <b-button variant="primary" size="sm">查看排行</b-button>
                         </b-row>
                         <b-row class="align-items-center text-sm m-0 p-2 border-btm">
-                            <div class="name mr-auto">2014 New Fashion Novelty Tank Slim Wom</div>
+                            <div class="name mr-auto cursor-pointer"
+                                 @click="toHomeworkResult">2014 New Fashion Novelty Tank Slim Wom</div>
                             <span class="date mr-2">2019/04/03</span>
                             <b-button variant="primary" size="sm">查看排行</b-button>
                         </b-row>
                         <b-row class="align-items-center text-sm m-0 p-2 border-btm">
-                            <div class="name mr-auto">2014 New Fashion Novelty Tank Slim Wom</div>
+                            <div class="name mr-auto cursor-pointer"
+                                 @click="toHomeworkResult">2014 New Fashion Novelty Tank Slim Wom</div>
                             <span class="date mr-2">2019/04/03</span>
                             <b-button variant="primary" size="sm">查看排行</b-button>
                         </b-row>
                         <b-row class="align-items-center text-sm m-0 p-2 border-btm">
-                            <div class="name mr-auto">2014 New Fashion Novelty Tank Slim Wom</div>
+                            <div class="name mr-auto cursor-pointer"
+                                 @click="toHomeworkResult">2014 New Fashion Novelty Tank Slim Wom</div>
                             <span class="date mr-2">2019/04/03</span>
                             <b-button variant="primary" size="sm">查看排行</b-button>
                         </b-row>
@@ -166,9 +171,17 @@ import ImgWrrapperBronze from '../../../../public/svg/img_wrraper_3.svg';
         },
         data: () => ({
         }),
+        computed: {
+        },
         created() {
         },
         methods: {
+            toHomeworks() {
+                this.$router.push({name: 'teacher-homeworks'});
+            },
+            toHomeworkResult() {
+                this.$router.push({name: 'teacher-homework-result', params: { id: 6 }});
+            }
         },
     };
 </script>

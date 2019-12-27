@@ -16,6 +16,15 @@
                         </b-tr>
                     </b-thead>
                     <b-tbody>
+                        <b-tr>
+                            <b-th width="10%" @click="() => toUnites()" class="cursor-pointer">course name</b-th>
+                            <b-th width="10%">class name</b-th>
+                            <b-th width="10%">
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">发布</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0 text-warning">编辑</b-button>
+                                <b-button variant="link" size="sm" class="pt-0 pb-0">删除</b-button>
+                            </b-th>
+                        </b-tr>
                         <b-tr v-for="(item, index) in tmpData"
                             :key="index + 'tbody'">
                             <b-th width="10%" @click="() => toUnites(item)" class="cursor-pointer">{{ item.name }}</b-th>
@@ -79,7 +88,7 @@ export default {
             this.currentPage = v;
         },
         toUnites(course) {
-            this.$router.push({name: 'teacher-course-unites', params: { id: course.id }});
+            this.$router.push({name: 'teacher-course-unites', params: { id: course ? course.id : 4}});
         },
         show () {
             this.$modal.show({

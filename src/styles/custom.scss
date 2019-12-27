@@ -149,6 +149,10 @@ a {
     }
 }
 
+.btn-ellips {
+    border-radius: 8px;
+}
+
 
 //Forms
 input::placeholder {
@@ -224,4 +228,12 @@ input::placeholder {
         color: $warning;
         border-color: $warning;
     }
+    &.oval-primary {
+        color: $primary;
+        border-color: $primary;
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
